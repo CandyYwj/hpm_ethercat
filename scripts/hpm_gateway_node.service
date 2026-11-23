@@ -1,0 +1,28 @@
+# Author: BearKing
+[Unit]
+Description=HPM Gateway EtherCAT control node (ROS2 Humble / TROS)
+After=network-online.target
+Wants=network-online.target
+# Start after the NIC IRQ pinning service so EtherCAT interrupts land on the
+# same core the node's RT worker is pinned to.
+After=rdk_rt_setup.service
+Wants=rdk_rt_setup.service
+
+[Service]
+Type=simple
+User=root
+Environment=ROS_DOMAIN_ID=42
+# Path where hpm_gateway_node.sh is installed (see scripts/README.md).
+ExecStart=/usr/local/bin/hpm_gateway_node.sh
+Restart=on-failure
+RestartSec=5
+TimeoutStartSec=30
+TimeoutStopSec=20
+KillMode=control-group
+KillSignal=SIGINT
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=hpm_gateway_node
+
+[Install]
+WantedBy=multi-user.target

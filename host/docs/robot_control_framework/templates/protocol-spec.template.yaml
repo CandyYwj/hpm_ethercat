@@ -1,0 +1,59 @@
+# 复制后删除注释中的 TODO，并由 schema/lint 工具校验。
+schema_version: 1
+protocol_id: com.example.vendor.protocol
+wire_version: 1.0.0
+codec_abi: 1
+schema_hash: "sha256:TODO"
+owner: team/robot-drivers
+supported_transports:
+  - kind: can_classic
+    frame_format: standard
+    max_frame_bytes: 8
+    nominal_bitrate: 1000000
+capabilities:
+  - cyclic_command
+  - feedback
+  - safe_stop
+compatibility:
+  device_firmware: ">=1.0,<2.0"
+  required_features: []
+framing:
+  byte_order: little
+  crc: none
+  sequence: none
+frames:
+  - name: command
+    direction: host_to_device
+    id_mask: 0x00000000
+    id_value: 0x00000000
+    dlc: 8
+    period_us: 1000
+    idempotent: true
+    fields: []
+  - name: feedback
+    direction: device_to_host
+    id_mask: 0x00000000
+    id_value: 0x00000000
+    dlc: 8
+    fields: []
+errors:
+  - code: 1
+    name: invalid_frame
+    action: drop_and_count
+  - code: 2
+    name: device_fault
+    action: safe_stop
+timing:
+  decode_wcet_us: 50
+  encode_wcet_us: 50
+  max_rx_frames_per_cycle: 1
+  max_tx_frames_per_cycle: 1
+security:
+  unknown_device_action: quarantine
+  auto_enable: false
+  signature_required: true
+golden_vectors:
+  - path: vectors/command_nominal.bin
+    expected: TODO
+  - path: vectors/feedback_nominal.bin
+    expected: TODO

@@ -1,0 +1,181 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build ecat_tsn_gateway",
+            "type": "shell",
+            "command": "ninja",
+            "options": {
+                "cwd": "${workspaceRoot}/firmware/ecat_tsn_gateway/build"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "windows": {
+                "options": {
+                    "env": {
+                        "HPM_SDK_BASE": "D:/Tools/hpm/sdk_env-main/hpm_sdk",
+                        "GNURISCV_TOOLCHAIN_PATH": "D:/Tools/hpm/sdk_env-main/toolchains/rv32imac_zicsr_zifencei_multilib_b_ext-win",
+                        "PATH": "D:/Tools/hpm/sdk_env-main/tools/cmake/bin;D:/Tools/hpm/sdk_env-main/toolchains/rv32imac_zicsr_zifencei_multilib_b_ext-win/bin;D:/Tools/hpm/sdk_env-main/tools/python3;D:/Tools/hpm/sdk_env-main/tools/ninja;${env:PATH}"
+                    }
+                }
+            },
+            "linux": {
+                "command": "bash",
+                "args": [
+                    "${workspaceFolder}/scripts/build_firmware.sh"
+                ],
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                }
+            }
+        },
+        {
+            "label": "Build (Ninja)",
+            "type": "shell",
+            "command": "ninja",
+            "options": {
+                "cwd": "${workspaceRoot}/firmware/ecat_tsn_gateway/build"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "windows": {
+                "options": {
+                    "env": {
+                        "HPM_SDK_BASE": "D:/Tools/hpm/sdk_env-main/hpm_sdk",
+                        "GNURISCV_TOOLCHAIN_PATH": "D:/Tools/hpm/sdk_env-main/toolchains/rv32imac_zicsr_zifencei_multilib_b_ext-win",
+                        "PATH": "D:/Tools/hpm/sdk_env-main/tools/cmake/bin;D:/Tools/hpm/sdk_env-main/toolchains/rv32imac_zicsr_zifencei_multilib_b_ext-win/bin;D:/Tools/hpm/sdk_env-main/tools/python3;D:/Tools/hpm/sdk_env-main/tools/ninja;${env:PATH}"
+                    }
+                }
+            },
+            "linux": {
+                "command": "bash",
+                "args": [
+                    "${workspaceFolder}/scripts/build_firmware.sh"
+                ],
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                }
+            }
+        },
+        {
+            "label": "CMake Configure",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "-S",
+                "${workspaceRoot}/firmware/ecat_tsn_gateway",
+                "-B",
+                "${workspaceRoot}/firmware/ecat_tsn_gateway/build",
+                "-G",
+                "Ninja",
+                "-DBOARD=hpm6e00_full_port",
+                "-DBOARD_SEARCH_PATH=D:/Tools/hpm/sdk_env-main/hpm_app/boards",
+                "-DHPM_BUILD_TYPE=flash_xip",
+                "-DCMAKE_BUILD_TYPE=debug",
+                "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "windows": {
+                "options": {
+                    "env": {
+                        "HPM_SDK_BASE": "D:/Tools/hpm/sdk_env-main/hpm_sdk",
+                        "GNURISCV_TOOLCHAIN_PATH": "D:/Tools/hpm/sdk_env-main/toolchains/rv32imac_zicsr_zifencei_multilib_b_ext-win",
+                        "PATH": "D:/Tools/hpm/sdk_env-main/tools/cmake/bin;D:/Tools/hpm/sdk_env-main/toolchains/rv32imac_zicsr_zifencei_multilib_b_ext-win/bin;D:/Tools/hpm/sdk_env-main/tools/python3;D:/Tools/hpm/sdk_env-main/tools/ninja;${env:PATH}"
+                    }
+                }
+            },
+            "linux": {
+                "command": "bash",
+                "args": [
+                    "${workspaceFolder}/scripts/build_firmware.sh",
+                    "--configure-only"
+                ],
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                }
+            }
+        },
+        {
+            "label": "Flash (HS-Link OpenOCD)",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}/scripts/download_firmware.ps1",
+                "-Speed",
+                "200"
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}"
+            },
+            "problemMatcher": [],
+            "linux": {
+                "command": "bash",
+                "args": [
+                    "${workspaceFolder}/scripts/download_firmware.sh"
+                ],
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                }
+            },
+            "dependsOn": [
+                "Build ecat_tsn_gateway"
+            ],
+            "dependsOrder": "sequence"
+        },
+        {
+            "label": "Clean",
+            "type": "shell",
+            "command": "ninja",
+            "args": [
+                "-t",
+                "clean"
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}/firmware/ecat_tsn_gateway/build"
+            },
+            "problemMatcher": [],
+            "linux": {
+                "command": "cmake",
+                "args": [
+                    "--build",
+                    "${workspaceFolder}/firmware/ecat_tsn_gateway/build",
+                    "--target",
+                    "clean"
+                ],
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                }
+            }
+        },
+        {
+            "label": "Build ROS 2 host (Ubuntu)",
+            "type": "process",
+            "command": "bash",
+            "args": [
+                "${workspaceFolder}/scripts/build_host.sh"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        }
+    ]
+}

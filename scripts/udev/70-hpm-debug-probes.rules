@@ -1,0 +1,8 @@
+# USB and HID access for CMSIS-DAP and HSLINK debug probes only.
+# The plugdev group is available on Ubuntu; uaccess supports desktop sessions.
+SUBSYSTEM=="usb", ATTR{product}=="*CMSIS-DAP*", MODE="0660", GROUP="plugdev", TAG+="uaccess"
+SUBSYSTEM=="hidraw", ATTRS{product}=="*CMSIS-DAP*", MODE="0660", GROUP="plugdev", TAG+="uaccess"
+SUBSYSTEM=="usb", ATTR{product}=="*HSLink*", MODE="0660", GROUP="plugdev", TAG+="uaccess"
+SUBSYSTEM=="hidraw", ATTRS{product}=="*HSLink*", MODE="0660", GROUP="plugdev", TAG+="uaccess"
+SUBSYSTEM=="usb", ATTR{product}=="*HSLINK*", MODE="0660", GROUP="plugdev", TAG+="uaccess"
+SUBSYSTEM=="hidraw", ATTRS{product}=="*HSLINK*", MODE="0660", GROUP="plugdev", TAG+="uaccess"

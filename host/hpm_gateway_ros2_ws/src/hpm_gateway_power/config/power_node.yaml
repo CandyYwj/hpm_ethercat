@@ -1,0 +1,13 @@
+# hpm_gateway_power 电源板节点参数
+hpm_gateway_power_node:
+  ros__parameters:
+    serial_port: "/dev/ttyUSB0"
+    baud_rate: 115200
+    heartbeat_period_ms: 500
+    status_period_ms: 1000
+    cmd_timeout_ms: 100
+    cmd_retries: 2
+    # 0 = 关闭板卡周期推送，由本节点统一 GET_STATUS 轮询
+    report_interval_ms: 0
+    status_topic: "/hpm_gateway/power_status"
+    command_topic: "/hpm_gateway/power_command"

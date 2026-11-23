@@ -1,0 +1,119 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug (J-Link launch)",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "jlink",
+            "serverpath": "C:/Program Files/SEGGER/JLink_V952/JLinkGDBServerCL.exe",
+            "cwd": "${workspaceRoot}/firmware/ecat_tsn_gateway",
+            "executable": "${command:cmake.launchTargetPath}",
+            "device": "HPM6E80xVMx",
+            "interface": "JTAG",
+            "jlinkSpeed": 200,
+            "gdbPath": "D:/Tools/hpm/sdk_env-main/toolchains/rv32imac_zicsr_zifencei_multilib_b_ext-win/bin/riscv32-unknown-elf-gdb.exe",
+            "serverArgs": [
+                "-timeout",
+                "5000"
+            ],
+            "preLaunchTask": "Build ecat_tsn_gateway",
+            "runToEntryPoint": "main",
+            "showDevDebugOutput": "raw"
+        },
+        {
+            "name": "Debug (J-Link attach, no reset)",
+            "type": "cortex-debug",
+            "request": "attach",
+            "servertype": "jlink",
+            "serverpath": "C:/Program Files/SEGGER/JLink_V952/JLinkGDBServerCL.exe",
+            "cwd": "${workspaceRoot}/firmware/ecat_tsn_gateway",
+            "executable": "${command:cmake.launchTargetPath}",
+            "device": "HPM6E80xVMx",
+            "interface": "JTAG",
+            "jlinkSpeed": 200,
+            "gdbPath": "D:/Tools/hpm/sdk_env-main/toolchains/rv32imac_zicsr_zifencei_multilib_b_ext-win/bin/riscv32-unknown-elf-gdb.exe",
+            "serverArgs": [
+                "-timeout",
+                "5000"
+            ],
+            "showDevDebugOutput": "raw"
+        },
+        {
+            "name": "Debug (HS-Link launch)",
+            "type": "cortex-debug",
+            "request": "launch",
+            "servertype": "openocd",
+            "serverpath": "D:/Tools/hpm/sdk_env-main/tools/openocd/openocd.exe",
+            "cwd": "${workspaceRoot}/firmware/ecat_tsn_gateway",
+            "executable": "${command:cmake.launchTargetPath}",
+            "configFiles": [
+                "D:/Tools/hpm/sdk_env-main/hpm_sdk/boards/openocd/probes/cmsis_dap.cfg",
+                "D:/Tools/hpm/sdk_env-main/hpm_sdk/boards/openocd/soc/hpm6e80-single-core.cfg",
+                "D:/Tools/hpm/sdk_env-main/hpm_sdk/boards/openocd/boards/hpm6e00evk.cfg",
+                "D:/Tools/hpm/sdk_env-main/hpm_sdk/boards/openocd/soc/_speed200.cfg"
+            ],
+            "searchDir": [
+                "D:/Tools/hpm/sdk_env-main/hpm_sdk/boards/openocd"
+            ],
+            "gdbPath": "D:/Tools/hpm/sdk_env-main/toolchains/rv32imac_zicsr_zifencei_multilib_b_ext-win/bin/riscv32-unknown-elf-gdb.exe",
+            "overrideLaunchCommands": [
+                "monitor adapter speed 200",
+                "monitor reset halt",
+                "load",
+                "monitor reset halt"
+            ],
+            "runToEntryPoint": "main",
+            "showDevDebugOutput": "raw"
+        },
+        {
+            "name": "Debug (HS-Link attach, no reset)",
+            "type": "cortex-debug",
+            "request": "attach",
+            "servertype": "openocd",
+            "serverpath": "D:/Tools/hpm/sdk_env-main/tools/openocd/openocd.exe",
+            "cwd": "${workspaceRoot}/firmware/ecat_tsn_gateway",
+            "executable": "${command:cmake.launchTargetPath}",
+            "configFiles": [
+                "D:/Tools/hpm/sdk_env-main/hpm_sdk/boards/openocd/probes/cmsis_dap.cfg",
+                "D:/Tools/hpm/sdk_env-main/hpm_sdk/boards/openocd/soc/hpm6e80-single-core.cfg",
+                "D:/Tools/hpm/sdk_env-main/hpm_sdk/boards/openocd/boards/hpm6e00evk.cfg",
+                "D:/Tools/hpm/sdk_env-main/hpm_sdk/boards/openocd/soc/_speed200.cfg"
+            ],
+            "searchDir": [
+                "D:/Tools/hpm/sdk_env-main/hpm_sdk/boards/openocd"
+            ],
+            "gdbPath": "D:/Tools/hpm/sdk_env-main/toolchains/rv32imac_zicsr_zifencei_multilib_b_ext-win/bin/riscv32-unknown-elf-gdb.exe",
+            "overrideAttachCommands": [
+                "monitor adapter speed 500",
+                "monitor halt"
+            ],
+            "showDevDebugOutput": "raw"
+        },
+        {
+            "name": "Debug (HS-Link flash + attach)",
+            "type": "cortex-debug",
+            "request": "attach",
+            "servertype": "openocd",
+            "serverpath": "D:/Tools/hpm/sdk_env-main/tools/openocd/openocd.exe",
+            "cwd": "${workspaceRoot}/firmware/ecat_tsn_gateway",
+            "executable": "${command:cmake.launchTargetPath}",
+            "configFiles": [
+                "D:/Tools/hpm/sdk_env-main/hpm_sdk/boards/openocd/probes/cmsis_dap.cfg",
+                "D:/Tools/hpm/sdk_env-main/hpm_sdk/boards/openocd/soc/hpm6e80-single-core.cfg",
+                "D:/Tools/hpm/sdk_env-main/hpm_sdk/boards/openocd/boards/hpm6e00evk.cfg",
+                "D:/Tools/hpm/sdk_env-main/hpm_sdk/boards/openocd/soc/_speed200.cfg"
+            ],
+            "searchDir": [
+                "D:/Tools/hpm/sdk_env-main/hpm_sdk/boards/openocd"
+            ],
+            "gdbPath": "D:/Tools/hpm/sdk_env-main/toolchains/rv32imac_zicsr_zifencei_multilib_b_ext-win/bin/riscv32-unknown-elf-gdb.exe",
+            "preLaunchTask": "Flash (HS-Link OpenOCD)",
+            "overrideAttachCommands": [
+                "monitor adapter speed 500",
+                "monitor halt"
+            ],
+            "showDevDebugOutput": "raw"
+        }
+    ]
+}

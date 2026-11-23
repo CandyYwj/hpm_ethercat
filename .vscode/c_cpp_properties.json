@@ -1,0 +1,81 @@
+{
+    "configurations": [
+        {
+            "name": "Ubuntu (HPM + ROS 2)",
+            "compileCommands": "${workspaceFolder}/.vscode/compile_commands.json",
+            "includePath": [
+                "${workspaceFolder}/firmware/ecat_tsn_gateway",
+                "${workspaceFolder}/firmware/ecat_tsn_gateway/SSC/Src",
+                "${workspaceFolder}/firmware/ecat_tsn_gateway/app",
+                "${workspaceFolder}/firmware/ecat_tsn_gateway/tasks",
+                "${workspaceFolder}/firmware/ecat_tsn_gateway/drivers/**",
+                "${workspaceFolder}/firmware/ecat_tsn_gateway/motor",
+                "${workspaceFolder}/firmware/ecat_tsn_gateway/protocols/**",
+                "${workspaceFolder}/firmware/ecat_tsn_gateway/build/build_tmp/generated/include",
+                "${userHome}/tools/hpm/hpm_sdk/arch/**",
+                "${userHome}/tools/hpm/hpm_sdk/drivers/inc",
+                "${userHome}/tools/hpm/hpm_sdk/soc/HPM6E00/**",
+                "${userHome}/tools/hpm/hpm_sdk/utils/**",
+                "${userHome}/tools/hpm/hpm_sdk/components/**",
+                "${userHome}/tools/hpm/hpm_sdk/middleware/FreeRTOS/**",
+                "${userHome}/tools/hpm/hpm_apps/boards/hpm6e00_full_port",
+                "${userHome}/tools/hpm/hpm_apps/apps/full_port/software/drivers/**",
+                "${workspaceFolder}/host/hpm_gateway_ros2_ws/src/hpm_gateway_control/include",
+                "${workspaceFolder}/host/hpm_gateway_ros2_ws/src/hpm_gateway_gamepad/include",
+                "${workspaceFolder}/host/hpm_gateway_ros2_ws/install/hpm_gateway_msgs/include/hpm_gateway_msgs",
+                "${userHome}/tools/ethercat/soem/include"
+            ],
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/firmware/ecat_tsn_gateway",
+                    "${userHome}/tools/hpm/hpm_sdk",
+                    "${userHome}/tools/hpm/hpm_apps",
+                    "${workspaceFolder}/host/hpm_gateway_ros2_ws/src",
+                    "${workspaceFolder}/host/hpm_gateway_ros2_ws/install/hpm_gateway_msgs/include",
+                    "${userHome}/tools/ethercat/SOEM/src",
+                    "${userHome}/tools/ethercat/soem/include",
+                    "/opt/ros/jazzy/include"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "defines": [],
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        },
+        {
+            "name": "HPM6E80 (Windows)",
+            "compilerPath": "D:/Tools/hpm/sdk_env-main/toolchains/rv32imac_zicsr_zifencei_multilib_b_ext-win/bin/riscv32-unknown-elf-gcc.exe",
+            "compilerArgs": [
+                "-mabi=ilp32",
+                "-march=rv32imac"
+            ],
+            "compileCommands": "${workspaceFolder}/firmware/ecat_tsn_gateway/build/compile_commands.json",
+            "includePath": [
+                "${workspaceFolder}/firmware/ecat_tsn_gateway",
+                "${workspaceFolder}/firmware/ecat_tsn_gateway/SSC/Src",
+                "${workspaceFolder}/firmware/ecat_tsn_gateway/app",
+                "${workspaceFolder}/firmware/ecat_tsn_gateway/tasks",
+                "${workspaceFolder}/firmware/ecat_tsn_gateway/drivers/**",
+                "${workspaceFolder}/firmware/ecat_tsn_gateway/motor",
+                "${workspaceFolder}/firmware/ecat_tsn_gateway/protocols/**",
+                "D:/Tools/hpm/sdk_env-main/hpm_sdk/**",
+                "D:/Tools/hpm/sdk_env-main/hpm_app/**",
+                "${workspaceFolder}/firmware/ecat_tsn_gateway/build/build_tmp/generated/include"
+            ],
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/firmware/ecat_tsn_gateway",
+                    "D:/Tools/hpm/sdk_env-main/hpm_sdk",
+                    "D:/Tools/hpm/sdk_env-main/hpm_app"
+                ],
+                "limitSymbolsToIncludedHeaders": false
+            },
+            "defines": [
+                "FLASH_XIP=1"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++11"
+        }
+    ],
+    "version": 4
+}

@@ -1,0 +1,26 @@
+{
+    "cmake.sourceDirectory": "${workspaceFolder}/firmware/ecat_tsn_gateway",
+    "cmake.buildDirectory": "${workspaceFolder}/firmware/ecat_tsn_gateway/build",
+    "cmake.configureOnOpen": false,
+    "C_Cpp.intelliSenseEngine": "default",
+    "C_Cpp.errorSquiggles": "enabled",
+    "C_Cpp.default.compileCommands": "${workspaceFolder}/.vscode/compile_commands.json",
+    "C_Cpp.formatting": "disabled",
+    "cmake.generator": "Ninja",
+    "cmake.environment": {
+        "HPM_SDK_BASE": "${userHome}/tools/hpm/hpm_sdk",
+        "GNURISCV_TOOLCHAIN_PATH": "${userHome}/tools/hpm/toolchains/rv32imac_zicsr_zifencei_multilib_b_ext-linux",
+        "HPM_SDK_TOOLCHAIN_VARIANT": "",
+        "PATH": "${userHome}/tools/hpm/openocd/bin:${userHome}/tools/hpm/venv/bin:${userHome}/tools/hpm/toolchains/rv32imac_zicsr_zifencei_multilib_b_ext-linux/bin:${env:PATH}"
+    },
+    "cmake.configureSettings": {
+        "BOARD": "hpm6e00_full_port",
+        "BOARD_SEARCH_PATH": "${userHome}/tools/hpm/hpm_apps/boards",
+        "HPM_APP_DRIVERS": "${userHome}/tools/hpm/hpm_apps/apps/full_port/software/drivers",
+        "HPM_BUILD_TYPE": "flash_xip",
+        "GATEWAY_PERFORMANCE_BUILD": "ON",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "PYTHON_EXECUTABLE": "${userHome}/tools/hpm/venv/bin/python3",
+        "CMAKE_BUILD_TYPE": "debug"
+    }
+}

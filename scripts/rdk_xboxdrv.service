@@ -1,0 +1,21 @@
+# Author: BearKing
+[Unit]
+Description=HPM Gateway xboxdrv userspace driver for 2.4G XBOX360 clone receiver (hot-plug watchdog)
+After=local-fs.target
+
+[Service]
+Type=simple
+User=root
+# Path where rdk_xboxdrv.sh is installed (see scripts/README.md).
+ExecStart=/usr/local/bin/rdk_xboxdrv.sh
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=10
+KillMode=control-group
+KillSignal=SIGINT
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=rdk_xboxdrv
+
+[Install]
+WantedBy=multi-user.target

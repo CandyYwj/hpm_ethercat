@@ -1,0 +1,22 @@
+# hpm_gateway_gamepad parameters (event-driven gamepad node).
+gamepad:
+  ros__parameters:
+    # Empty => auto-detect joysticks via udev (recommended). Set a fixed
+    # /dev/input/eventX to bypass udev detection for debugging.
+    dev: ""
+
+    # Stick deadzone applied to normalized axes in [-1,1].
+    deadzone: 0.05
+
+    # While any button is held, re-publish Joy at this rate (Hz). 0 disables.
+    autorepeat_rate: 20.0
+
+    # If >0, also re-publish current state periodically (ms) so subscribers
+    # can detect a stuck/hung publisher even with no input events. 0 disables.
+    heartbeat_period_ms: 0
+
+    # Frame id stamped into sensor_msgs/msg/Joy.
+    frame_id: "gamepad"
+
+    # Topic published with sensor_msgs/msg/Joy.
+    topic: "/gamepad/joy"

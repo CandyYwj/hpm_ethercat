@@ -1,0 +1,9 @@
+# Author: BearKing
+# Start/refresh the xboxdrv watchdog whenever the 2.4G XBOX360 clone receiver
+# (vendor 0x413d / product 0x2104) is plugged in, so hot-plug still works even
+# if the rdk_xboxdrv.service was stopped for any reason.
+#
+# Install:
+#   sudo cp scripts/90-rdk-xbox360.rules /etc/udev/rules.d/
+#   sudo udevadm control --reload && sudo udevadm trigger
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="413d", ATTR{idProduct}=="2104", TAG+="systemd", ENV{SYSTEMD_WANTS}="rdk_xboxdrv.service"

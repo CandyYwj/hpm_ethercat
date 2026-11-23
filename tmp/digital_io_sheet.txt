@@ -1,0 +1,199 @@
+﻿B1=Device Profile: | C1=5001 | D1=Modular Device Profile | E1= | G1= | H1= | I1= | J1= | K1= | L1= | M1= | N1= | O1= | P1= | Q1= | R1= | S1= | T1=
+B2=Modul Profile: | C2=0 | E2= | F2= | G2= | H2= | I2= | J2= | K2= | L2= | M2= | N2= | O2= | P2= | Q2= | R2= | S2= | T2=
+B3=IndexIncrement | C3=256 | D3= | E3= | F3= | G3= | H3= | I3= | J3= | K3= | L3= | M3= | N3= | O3= | P3= | Q3= | R3= | S3= | T3=
+B4=PdoIndexIncrement: | C4=16 | D4= | E4= | F4= | G4= | H4= | I4= | J4= | K4= | L4= | M4= | N4= | O4= | P4= | Q4= | R4= | S4= | T4=
+B5= | C5= | D5= | E5= | F5= | G5= | H5= | I5= | J5= | K5= | L5= | M5= | N5= | O5= | P5= | Q5= | R5= | S5= | T5=
+B6= | C6= | D6= | E6= | F6= | G6= | H6= | I6= | J6= | K6= | L6= | M6= | N6= | O6= | P6= | Q6= | R6= | S6= | T6=
+B7= | C7= | D7= | E7= | F7= | G7= | H7= | I7= | J7= | K7= | L7= | M7= | N7= | O7= | P7= | Q7= | R7= | S7= | T7=
+B8=The object dictionary defined here shall be used complementary with ETG.5001 and ETG.1000 | C8= | D8= | E8= | F8= | G8= | H8= | I8= | J8= | K8= | L8= | M8= | N8= | O8= | P8=
+B9= | C9= | D9= | E9= | F9= | G9= | H9= | I9= | J9= | K9= | L9= | M9= | N9= | O9= | P9=
+B10=Index | C10=ObjectCode | D10=SI | E10=DataType | F10=Name | G10=Default Value | H10=Min Value | I10=Max Value | J10=M/O/C | K10=B/S | L10=Access | M10=rx/tx | N10=CoeRead | O10=CoeWrite | P10=Description
+B11=//0x04xx | C11=Units | D11= | E11= | F11= | G11= | H11= | I11= | J11= | K11= | L11= | M11= | N11= | O11= | P11=
+B12= | C12= | D12= | E12= | F12= | G12= | H12= | I12= | J12= | K12= | L12= | M12= | N12= | O12= | P12=
+D13= | E13= | F13= | G13= | H13= | I13= | N13= | O13= | P13=
+B14=//0x8xx | C14=Enums (0x0800 - 0xFFF) | D14= | E14= | F14= | G14= | H14= | I14= | J14= | K14= | L14= | M14= | N14= | O14= | P14=
+D15= | E15= | F15= | G15= | H15= | I15= | N15= | O15= | P15=
+D16= | E16= | F16= | G16= | H16= | I16= | N16= | O16= | P16=
+B17=//0x14nn | C17=RxPDO Parameter (0x1400 - 0x15FF) | D17= | E17= | F17= | G17= | H17= | I17= | J17= | K17= | L17= | M17= | N17= | O17= | P17=
+D18= | E18= | F18= | G18= | H18= | I18= | N18= | O18= | P18=
+D19= | E19= | F19= | G19= | H19= | I19= | N19= | O19= | P19=
+B20=//0x16nn | D20= | E20= | F20= | G20= | H20= | I20= | J20= | K20= | L20= | M20= | N20= | O20= | P20=
+D21= | E21= | F21= | G21= | H21= | I21= | N21= | O21= | P21=
+D22= | E22= | F22= | G22= | H22= | I22= | N22= | O22= | P22=
+B23=//0x18nn | C23=TxPDO Paramter (0x1800 - 0x19FF) | D23= | E23= | F23= | G23= | H23= | I23= | J23= | K23= | L23= | M23= | N23= | O23= | P23=
+D24= | E24= | F24= | G24= | H24= | I24= | N24= | O24= | P24=
+D25= | E25= | F25= | G25= | H25= | I25= | N25= | O25= | P25=
+B26=//0x1Ann | D26= | E26= | F26= | G26= | H26= | I26= | J26= | K26= | L26= | M26= | N26= | O26= | P26=
+D27= | E27= | F27= | G27= | H27= | I27= | N27= | O27= | P27=
+D28= | E28= | F28= | G28= | H28= | I28= | N28= | O28= | P28=
+B29=//0x1C12 | D29= | E29= | F29= | G29= | H29= | I29= | J29= | K29= | L29= | M29= | N29= | O29= | P29=
+D30= | E30= | F30= | G30= | H30= | I30= | N30= | O30= | P30=
+D31= | E31= | F31= | G31= | H31= | I31= | N31= | O31= | P31=
+B32=//0x1C13 | D32= | E32= | F32= | G32= | H32= | I32= | J32= | K32= | L32= | M32= | N32= | O32= | P32=
+B33=0x3000 | C33=VARIABLE | D33= | E33=UINT32 | F33=ImuStatus | G33=0 | H33= | I33= | L33=ro | M33=tx | N33= | O33= | P33=
+B34=0x3001 | C34=VARIABLE | D34= | E34=UINT32 | F34=ImuValidFields | G34=0 | H34= | I34= | L34=ro | M34=tx | N34= | O34= | P34=
+B35=0x3002 | C35=VARIABLE | D35= | E35=UINT32 | F35=ImuReceiveTick | G35=0 | H35= | I35= | L35=ro | M35=tx | N35= | O35= | P35=
+B36=0x3003 | C36=VARIABLE | D36= | E36=UINT32 | F36=ImuSampleTimeUs | G36=0 | H36= | I36= | L36=ro | M36=tx | N36= | O36= | P36=
+B37=0x3004 | C37=VARIABLE | D37= | E37=REAL | F37=ImuAccelX | G37=0 | H37= | I37= | L37=ro | M37=tx | N37= | O37= | P37=
+B38=0x3005 | C38=VARIABLE | D38= | E38=REAL | F38=ImuAccelY | G38=0 | H38= | I38= | L38=ro | M38=tx | N38= | O38= | P38=
+B39=0x3006 | C39=VARIABLE | D39= | E39=REAL | F39=ImuAccelZ | G39=0 | H39= | I39= | L39=ro | M39=tx | N39= | O39= | P39=
+B40=0x3007 | C40=VARIABLE | D40= | E40=REAL | F40=ImuGyroX | G40=0 | H40= | I40= | L40=ro | M40=tx | N40= | O40= | P40=
+B41=0x3008 | C41=VARIABLE | D41= | E41=REAL | F41=ImuGyroY | G41=0 | H41= | I41= | L41=ro | M41=tx | N41= | O41= | P41=
+B42=0x3009 | C42=VARIABLE | D42= | E42=REAL | F42=ImuGyroZ | G42=0 | H42= | I42= | L42=ro | M42=tx | N42= | O42= | P42=
+B43=0x3010 | C43=VARIABLE | D43= | E43=REAL | F43=ImuQuaternion0 | G43=0 | H43= | I43= | L43=ro | M43=tx | N43= | O43= | P43=
+B44=0x3011 | C44=VARIABLE | D44= | E44=REAL | F44=ImuQuaternion1 | G44=0 | H44= | I44= | L44=ro | M44=tx | N44= | O44= | P44=
+B45=0x3012 | C45=VARIABLE | D45= | E45=REAL | F45=ImuQuaternion2 | G45=0 | H45= | I45= | L45=ro | M45=tx | N45= | O45= | P45=
+B46=0x3013 | C46=VARIABLE | D46= | E46=REAL | F46=ImuQuaternion3 | G46=0 | H46= | I46= | L46=ro | M46=tx | N46= | O46= | P46=
+B47=0x3014 | C47=VARIABLE | D47= | E47=REAL | F47=ImuTemperature | G47=0 | H47= | I47= | L47=ro | M47=tx | N47= | O47= | P47=
+D48= | E48= | F48= | G48= | H48= | I48= | N48= | O48= | P48=
+D49= | E49= | F49= | G49= | H49= | I49= | N49= | O49= | P49=
+B50=//0x6nnx | C50=Input Data of the Module (0x6000 - 0x6FFF) | D50= | E50= | F50= | G50= | H50= | I50= | J50= | K50= | L50= | M50= | N50= | O50= | P50=
+B51=0x6000 | C51=VARIABLE | D51= | E51=REAL | F51=ActualPosition0 | G51=0 | H51= | I51= | L51=ro | M51=tx | N51= | O51= | P51=
+B52=0x6001 | C52=VARIABLE | D52= | E52=REAL | F52=ActualVelocity0 | G52=0 | H52= | I52= | L52=ro | M52=tx | N52= | O52= | P52=
+B53=0x6002 | C53=VARIABLE | D53= | E53=REAL | F53=ActualTorque0 | G53=0 | H53= | I53= | L53=ro | M53=tx | N53= | O53= | P53=
+B54=0x6100 | C54=VARIABLE | D54= | E54=REAL | F54=ActualPosition1 | G54=0 | H54= | I54= | L54=ro | M54=tx | N54= | O54= | P54=
+B55=0x6101 | C55=VARIABLE | D55= | E55=REAL | F55=ActualVelocity1 | G55=0 | H55= | I55= | L55=ro | M55=tx | N55= | O55= | P55=
+B56=0x6102 | C56=VARIABLE | D56= | E56=REAL | F56=ActualTorque1 | G56=0 | H56= | I56= | L56=ro | M56=tx | N56= | O56= | P56=
+B57=0x6200 | C57=VARIABLE | D57= | E57=REAL | F57=ActualPosition2 | G57=0 | H57= | I57= | L57=ro | M57=tx | N57= | O57= | P57=
+B58=0x6201 | C58=VARIABLE | D58= | E58=REAL | F58=ActualVelocity2 | G58=0 | H58= | I58= | L58=ro | M58=tx | N58= | O58= | P58=
+B59=0x6202 | C59=VARIABLE | D59= | E59=REAL | F59=ActualTorque2 | G59=0 | H59= | I59= | L59=ro | M59=tx | N59= | O59= | P59=
+B60=0x6300 | C60=VARIABLE | D60= | E60=REAL | F60=ActualPosition3 | G60=0 | H60= | I60= | L60=ro | M60=tx | N60= | O60= | P60=
+B61=0x6301 | C61=VARIABLE | D61= | E61=REAL | F61=ActualVelocity3 | G61=0 | H61= | I61= | L61=ro | M61=tx | N61= | O61= | P61=
+B62=0x6302 | C62=VARIABLE | D62= | E62=REAL | F62=ActualTorque3 | G62=0 | H62= | I62= | L62=ro | M62=tx | N62= | O62= | P62=
+B63=0x6400 | C63=VARIABLE | D63= | E63=REAL | F63=ActualPosition4 | G63=0 | H63= | I63= | L63=ro | M63=tx | N63= | O63= | P63=
+B64=0x6401 | C64=VARIABLE | D64= | E64=REAL | F64=ActualVelocity4 | G64=0 | H64= | I64= | L64=ro | M64=tx | N64= | O64= | P64=
+B65=0x6402 | C65=VARIABLE | D65= | E65=REAL | F65=ActualTorque4 | G65=0 | H65= | I65= | L65=ro | M65=tx | N65= | O65= | P65=
+B66=0x6500 | C66=VARIABLE | D66= | E66=REAL | F66=ActualPosition5 | G66=0 | H66= | I66= | L66=ro | M66=tx | N66= | O66= | P66=
+B67=0x6501 | C67=VARIABLE | D67= | E67=REAL | F67=ActualVelocity5 | G67=0 | H67= | I67= | L67=ro | M67=tx | N67= | O67= | P67=
+B68=0x6502 | C68=VARIABLE | D68= | E68=REAL | F68=ActualTorque5 | G68=0 | H68= | I68= | L68=ro | M68=tx | N68= | O68= | P68=
+B69=0x6600 | C69=VARIABLE | D69= | E69=REAL | F69=ActualPosition6 | G69=0 | H69= | I69= | L69=ro | M69=tx | N69= | O69= | P69=
+B70=0x6601 | C70=VARIABLE | D70= | E70=REAL | F70=ActualVelocity6 | G70=0 | H70= | I70= | L70=ro | M70=tx | N70= | O70= | P70=
+B71=0x6602 | C71=VARIABLE | D71= | E71=REAL | F71=ActualTorque6 | G71=0 | H71= | I71= | L71=ro | M71=tx | N71= | O71= | P71=
+B72=0x6700 | C72=VARIABLE | D72= | E72=REAL | F72=ActualPosition7 | G72=0 | H72= | I72= | L72=ro | M72=tx | N72= | O72= | P72=
+B73=0x6701 | C73=VARIABLE | D73= | E73=REAL | F73=ActualVelocity7 | G73=0 | H73= | I73= | L73=ro | M73=tx | N73= | O73= | P73=
+B74=0x6702 | C74=VARIABLE | D74= | E74=REAL | F74=ActualTorque7 | G74=0 | H74= | I74= | L74=ro | M74=tx | N74= | O74= | P74=
+B75=0x6800 | C75=VARIABLE | D75= | E75=REAL | F75=ActualPosition8 | G75=0 | H75= | I75= | L75=ro | M75=tx | N75= | O75= | P75=
+B76=0x6801 | C76=VARIABLE | D76= | E76=REAL | F76=ActualVelocity8 | G76=0 | H76= | I76= | L76=ro | M76=tx | N76= | O76= | P76=
+B77=0x6802 | C77=VARIABLE | D77= | E77=REAL | F77=ActualTorque8 | G77=0 | H77= | I77= | L77=ro | M77=tx | N77= | O77= | P77=
+B78=0x6900 | C78=VARIABLE | D78= | E78=REAL | F78=ActualPosition9 | G78=0 | H78= | I78= | L78=ro | M78=tx | N78= | O78= | P78=
+B79=0x6901 | C79=VARIABLE | D79= | E79=REAL | F79=ActualVelocity9 | G79=0 | H79= | I79= | L79=ro | M79=tx | N79= | O79= | P79=
+B80=0x6902 | C80=VARIABLE | D80= | E80=REAL | F80=ActualTorque9 | G80=0 | H80= | I80= | L80=ro | M80=tx | N80= | O80= | P80=
+B81=0x6A00 | C81=VARIABLE | D81= | E81=REAL | F81=ActualPositionA | G81=0 | H81= | I81= | L81=ro | M81=tx | N81= | O81= | P81=
+B82=0x6A01 | C82=VARIABLE | D82= | E82=REAL | F82=ActualVelocityA | G82=0 | H82= | I82= | L82=ro | M82=tx | N82= | O82= | P82=
+B83=0x6A02 | C83=VARIABLE | D83= | E83=REAL | F83=ActualTorqueA | G83=0 | H83= | I83= | L83=ro | M83=tx | N83= | O83= | P83=
+B84=0x6B00 | C84=VARIABLE | D84= | E84=REAL | F84=ActualPositionB | G84=0 | H84= | I84= | L84=ro | M84=tx | N84= | O84= | P84=
+B85=0x6B01 | C85=VARIABLE | D85= | E85=REAL | F85=ActualVelocityB | G85=0 | H85= | I85= | L85=ro | M85=tx | N85= | O85= | P85=
+B86=0x6B02 | C86=VARIABLE | D86= | E86=REAL | F86=ActualTorqueB | G86=0 | H86= | I86= | L86=ro | M86=tx | N86= | O86= | P86=
+B87=0x6C00 | C87=VARIABLE | D87= | E87=REAL | F87=ActualPositionC | G87=0 | H87= | I87= | L87=ro | M87=tx | N87= | O87= | P87=
+B88=0x6C01 | C88=VARIABLE | D88= | E88=REAL | F88=ActualVelocityC | G88=0 | H88= | I88= | L88=ro | M88=tx | N88= | O88= | P88=
+B89=0x6C02 | C89=VARIABLE | D89= | E89=REAL | F89=ActualTorqueC | G89=0 | H89= | I89= | L89=ro | M89=tx | N89= | O89= | P89=
+B90=0x6D00 | C90=VARIABLE | D90= | E90=REAL | F90=ActualPositionD | G90=0 | H90= | I90= | L90=ro | M90=tx | N90= | O90= | P90=
+B91=0x6D01 | C91=VARIABLE | D91= | E91=REAL | F91=ActualVelocityD | G91=0 | H91= | I91= | L91=ro | M91=tx | N91= | O91= | P91=
+B92=0x6D02 | C92=VARIABLE | D92= | E92=REAL | F92=ActualTorqueD | G92=0 | H92= | I92= | L92=ro | M92=tx | N92= | O92= | P92=
+B93=0x6E00 | C93=VARIABLE | D93= | E93=REAL | F93=ActualPositionE | G93=0 | H93= | I93= | L93=ro | M93=tx | N93= | O93= | P93=
+B94=0x6E01 | C94=VARIABLE | D94= | E94=REAL | F94=ActualVelocityE | G94=0 | H94= | I94= | L94=ro | M94=tx | N94= | O94= | P94=
+B95=0x6E02 | C95=VARIABLE | D95= | E95=REAL | F95=ActualTorqueE | G95=0 | H95= | I95= | L95=ro | M95=tx | N95= | O95= | P95=
+B96=0x6F00 | C96=VARIABLE | D96= | E96=REAL | F96=ActualPositionF | G96=0 | H96= | I96= | L96=ro | M96=tx | N96= | O96= | P96=
+B97=0x6F01 | C97=VARIABLE | D97= | E97=REAL | F97=ActualVelocityF | G97=0 | H97= | I97= | L97=ro | M97=tx | N97= | O97= | P97=
+B98=0x6F02 | C98=VARIABLE | D98= | E98=REAL | F98=ActualTorqueF | G98=0 | H98= | I98= | L98=ro | M98=tx | N98= | O98= | P98=
+D99= | E99= | F99= | G99= | H99= | I99= | N99= | O99= | P99=
+B100=//0x7nnx | C100=Output Data of the Module (0x7000 - 0x7FFF) | D100= | E100= | F100= | G100= | H100= | I100= | J100= | K100= | L100= | M100= | N100= | O100= | P100=
+B101=0x7010 | C101=VARIABLE | D101= | E101=REAL | F101=TargetPosition0 | G101=0 | H101= | I101= | L101=rw | M101=rx | N101= | O101= | P101=
+B102=0x7011 | C102=VARIABLE | D102= | E102=REAL | F102=TargetVelocity0 | G102=0 | H102= | I102= | L102=rw | M102=rx | N102= | O102= | P102=
+B103=0x7012 | C103=VARIABLE | D103= | E103=REAL | F103=FFTorque0 | G103=0 | H103= | I103= | L103=rw | M103=rx | N103= | O103= | P103=
+B104=0x7013 | C104=VARIABLE | D104= | E104=REAL | F104=Kp0 | G104=0 | H104= | I104= | L104=rw | M104=rx | N104= | O104= | P104=
+B105=0x7014 | C105=VARIABLE | D105= | E105=REAL | F105=Kd0 | G105=0 | H105= | I105= | L105=rw | M105=rx | N105= | O105= | P105=
+B106=0x7110 | C106=VARIABLE | D106= | E106=REAL | F106=TargetPosition1 | G106=0 | H106= | I106= | L106=rw | M106=rx | N106= | O106= | P106=
+B107=0x7111 | C107=VARIABLE | D107= | E107=REAL | F107=TargetVelocity1 | G107=0 | H107= | I107= | L107=rw | M107=rx | N107= | O107= | P107=
+B108=0x7112 | C108=VARIABLE | D108= | E108=REAL | F108=FFTorque1 | G108=0 | H108= | I108= | L108=rw | M108=rx | N108= | O108= | P108=
+B109=0x7113 | C109=VARIABLE | D109= | E109=REAL | F109=Kp1 | G109=0 | H109= | I109= | L109=rw | M109=rx | N109= | O109= | P109=
+B110=0x7114 | C110=VARIABLE | D110= | E110=REAL | F110=Kd1 | G110=0 | H110= | I110= | L110=rw | M110=rx | N110= | O110= | P110=
+B111=0x7210 | C111=VARIABLE | D111= | E111=REAL | F111=TargetPosition2 | G111=0 | H111= | I111= | L111=rw | M111=rx | N111= | O111= | P111=
+B112=0x7211 | C112=VARIABLE | D112= | E112=REAL | F112=TargetVelocity2 | G112=0 | H112= | I112= | L112=rw | M112=rx | N112= | O112= | P112=
+B113=0x7212 | C113=VARIABLE | D113= | E113=REAL | F113=FFTorque2 | G113=0 | H113= | I113= | L113=rw | M113=rx | N113= | O113= | P113=
+B114=0x7213 | C114=VARIABLE | D114= | E114=REAL | F114=Kp2 | G114=0 | H114= | I114= | L114=rw | M114=rx | N114= | O114= | P114=
+B115=0x7214 | C115=VARIABLE | D115= | E115=REAL | F115=Kd2 | G115=0 | H115= | I115= | L115=rw | M115=rx | N115= | O115= | P115=
+B116=0x7310 | C116=VARIABLE | D116= | E116=REAL | F116=TargetPosition3 | G116=0 | H116= | I116= | L116=rw | M116=rx | N116= | O116= | P116=
+B117=0x7311 | C117=VARIABLE | D117= | E117=REAL | F117=TargetVelocity3 | G117=0 | H117= | I117= | L117=rw | M117=rx | N117= | O117= | P117=
+B118=0x7312 | C118=VARIABLE | D118= | E118=REAL | F118=FFTorque3 | G118=0 | H118= | I118= | L118=rw | M118=rx | N118= | O118= | P118=
+B119=0x7313 | C119=VARIABLE | D119= | E119=REAL | F119=Kp3 | G119=0 | H119= | I119= | L119=rw | M119=rx | N119= | O119= | P119=
+B120=0x7314 | C120=VARIABLE | D120= | E120=REAL | F120=Kd3 | G120=0 | H120= | I120= | L120=rw | M120=rx | N120= | O120= | P120=
+B121=0x7410 | C121=VARIABLE | D121= | E121=REAL | F121=TargetPosition4 | G121=0 | H121= | I121= | L121=rw | M121=rx | N121= | O121= | P121=
+B122=0x7411 | C122=VARIABLE | D122= | E122=REAL | F122=TargetVelocity4 | G122=0 | H122= | I122= | L122=rw | M122=rx | N122= | O122= | P122=
+B123=0x7412 | C123=VARIABLE | D123= | E123=REAL | F123=FFTorque4 | G123=0 | H123= | I123= | L123=rw | M123=rx | N123= | O123= | P123=
+B124=0x7413 | C124=VARIABLE | D124= | E124=REAL | F124=Kp4 | G124=0 | H124= | I124= | L124=rw | M124=rx | N124= | O124= | P124=
+B125=0x7414 | C125=VARIABLE | D125= | E125=REAL | F125=Kd4 | G125=0 | H125= | I125= | L125=rw | M125=rx | N125= | O125= | P125=
+B126=0x7510 | C126=VARIABLE | D126= | E126=REAL | F126=TargetPosition5 | G126=0 | H126= | I126= | L126=rw | M126=rx | N126= | O126= | P126=
+B127=0x7511 | C127=VARIABLE | D127= | E127=REAL | F127=TargetVelocity5 | G127=0 | H127= | I127= | L127=rw | M127=rx | N127= | O127= | P127=
+B128=0x7512 | C128=VARIABLE | D128= | E128=REAL | F128=FFTorque5 | G128=0 | H128= | I128= | L128=rw | M128=rx | N128= | O128= | P128=
+B129=0x7513 | C129=VARIABLE | D129= | E129=REAL | F129=Kp5 | G129=0 | H129= | I129= | L129=rw | M129=rx | N129= | O129= | P129=
+B130=0x7514 | C130=VARIABLE | D130= | E130=REAL | F130=Kd5 | G130=0 | H130= | I130= | L130=rw | M130=rx | N130= | O130= | P130=
+B131=0x7610 | C131=VARIABLE | D131= | E131=REAL | F131=TargetPosition6 | G131=0 | H131= | I131= | L131=rw | M131=rx | N131= | O131= | P131=
+B132=0x7611 | C132=VARIABLE | D132= | E132=REAL | F132=TargetVelocity6 | G132=0 | H132= | I132= | L132=rw | M132=rx | N132= | O132= | P132=
+B133=0x7612 | C133=VARIABLE | D133= | E133=REAL | F133=FFTorque6 | G133=0 | H133= | I133= | L133=rw | M133=rx | N133= | O133= | P133=
+B134=0x7613 | C134=VARIABLE | D134= | E134=REAL | F134=Kp6 | G134=0 | H134= | I134= | L134=rw | M134=rx | N134= | O134= | P134=
+B135=0x7614 | C135=VARIABLE | D135= | E135=REAL | F135=Kd6 | G135=0 | H135= | I135= | L135=rw | M135=rx | N135= | O135= | P135=
+B136=0x7710 | C136=VARIABLE | D136= | E136=REAL | F136=TargetPosition7 | G136=0 | H136= | I136= | L136=rw | M136=rx | N136= | O136= | P136=
+B137=0x7711 | C137=VARIABLE | D137= | E137=REAL | F137=TargetVelocity7 | G137=0 | H137= | I137= | L137=rw | M137=rx | N137= | O137= | P137=
+B138=0x7712 | C138=VARIABLE | D138= | E138=REAL | F138=FFTorque7 | G138=0 | H138= | I138= | L138=rw | M138=rx | N138= | O138= | P138=
+B139=0x7713 | C139=VARIABLE | D139= | E139=REAL | F139=Kp7 | G139=0 | H139= | I139= | L139=rw | M139=rx | N139= | O139= | P139=
+B140=0x7714 | C140=VARIABLE | D140= | E140=REAL | F140=Kd7 | G140=0 | H140= | I140= | L140=rw | M140=rx | N140= | O140= | P140=
+B141=0x7810 | C141=VARIABLE | D141= | E141=REAL | F141=TargetPosition8 | G141=0 | H141= | I141= | L141=rw | M141=rx | N141= | O141= | P141=
+B142=0x7811 | C142=VARIABLE | D142= | E142=REAL | F142=TargetVelocity8 | G142=0 | H142= | I142= | L142=rw | M142=rx | N142= | O142= | P142=
+B143=0x7812 | C143=VARIABLE | D143= | E143=REAL | F143=FFTorque8 | G143=0 | H143= | I143= | L143=rw | M143=rx | N143= | O143= | P143=
+B144=0x7813 | C144=VARIABLE | D144= | E144=REAL | F144=Kp8 | G144=0 | H144= | I144= | L144=rw | M144=rx | N144= | O144= | P144=
+B145=0x7814 | C145=VARIABLE | D145= | E145=REAL | F145=Kd8 | G145=0 | H145= | I145= | L145=rw | M145=rx | N145= | O145= | P145=
+B146=0x7910 | C146=VARIABLE | D146= | E146=REAL | F146=TargetPosition9 | G146=0 | H146= | I146= | L146=rw | M146=rx | N146= | O146= | P146=
+B147=0x7911 | C147=VARIABLE | D147= | E147=REAL | F147=TargetVelocity9 | G147=0 | H147= | I147= | L147=rw | M147=rx | N147= | O147= | P147=
+B148=0x7912 | C148=VARIABLE | D148= | E148=REAL | F148=FFTorque9 | G148=0 | H148= | I148= | L148=rw | M148=rx | N148= | O148= | P148=
+B149=0x7913 | C149=VARIABLE | D149= | E149=REAL | F149=Kp9 | G149=0 | H149= | I149= | L149=rw | M149=rx | N149= | O149= | P149=
+B150=0x7914 | C150=VARIABLE | D150= | E150=REAL | F150=Kd9 | G150=0 | H150= | I150= | L150=rw | M150=rx | N150= | O150= | P150=
+B151=0x7A10 | C151=VARIABLE | D151= | E151=REAL | F151=TargetPositionA | G151=0 | H151= | I151= | L151=rw | M151=rx | N151= | O151= | P151=
+B152=0x7A11 | C152=VARIABLE | D152= | E152=REAL | F152=TargetVelocityA | G152=0 | H152= | I152= | L152=rw | M152=rx | N152= | O152= | P152=
+B153=0x7A12 | C153=VARIABLE | D153= | E153=REAL | F153=FFTorqueA | G153=0 | H153= | I153= | L153=rw | M153=rx | N153= | O153= | P153=
+B154=0x7A13 | C154=VARIABLE | D154= | E154=REAL | F154=KpA | G154=0 | H154= | I154= | L154=rw | M154=rx | N154= | O154= | P154=
+B155=0x7A14 | C155=VARIABLE | D155= | E155=REAL | F155=KdA | G155=0 | H155= | I155= | L155=rw | M155=rx | N155= | O155= | P155=
+B156=0x7B10 | C156=VARIABLE | D156= | E156=REAL | F156=TargetPositionB | G156=0 | H156= | I156= | L156=rw | M156=rx | N156= | O156= | P156=
+B157=0x7B11 | C157=VARIABLE | D157= | E157=REAL | F157=TargetVelocityB | G157=0 | H157= | I157= | L157=rw | M157=rx | N157= | O157= | P157=
+B158=0x7B12 | C158=VARIABLE | D158= | E158=REAL | F158=FFTorqueB | G158=0 | H158= | I158= | L158=rw | M158=rx | N158= | O158= | P158=
+B159=0x7B13 | C159=VARIABLE | D159= | E159=REAL | F159=KpB | G159=0 | H159= | I159= | L159=rw | M159=rx | N159= | O159= | P159=
+B160=0x7B14 | C160=VARIABLE | D160= | E160=REAL | F160=KdB | G160=0 | H160= | I160= | L160=rw | M160=rx | N160= | O160= | P160=
+B161=0x7C10 | C161=VARIABLE | D161= | E161=REAL | F161=TargetPositionC | G161=0 | H161= | I161= | L161=rw | M161=rx | N161= | O161= | P161=
+B162=0x7C11 | C162=VARIABLE | D162= | E162=REAL | F162=TargetVelocityC | G162=0 | H162= | I162= | L162=rw | M162=rx | N162= | O162= | P162=
+B163=0x7C12 | C163=VARIABLE | D163= | E163=REAL | F163=FFTorqueC | G163=0 | H163= | I163= | L163=rw | M163=rx | N163= | O163= | P163=
+B164=0x7C13 | C164=VARIABLE | D164= | E164=REAL | F164=KpC | G164=0 | H164= | I164= | L164=rw | M164=rx | N164= | O164= | P164=
+B165=0x7C14 | C165=VARIABLE | D165= | E165=REAL | F165=KdC | G165=0 | H165= | I165= | L165=rw | M165=rx | N165= | O165= | P165=
+B166=0x7D10 | C166=VARIABLE | D166= | E166=REAL | F166=TargetPositionD | G166=0 | H166= | I166= | L166=rw | M166=rx | N166= | O166= | P166=
+B167=0x7D11 | C167=VARIABLE | D167= | E167=REAL | F167=TargetVelocityD | G167=0 | H167= | I167= | L167=rw | M167=rx | N167= | O167= | P167=
+B168=0x7D12 | C168=VARIABLE | D168= | E168=REAL | F168=FFTorqueD | G168=0 | H168= | I168= | L168=rw | M168=rx | N168= | O168= | P168=
+B169=0x7D13 | C169=VARIABLE | D169= | E169=REAL | F169=KpD | G169=0 | H169= | I169= | L169=rw | M169=rx | N169= | O169= | P169=
+B170=0x7D14 | C170=VARIABLE | D170= | E170=REAL | F170=KdD | G170=0 | H170= | I170= | L170=rw | M170=rx | N170= | O170= | P170=
+B171=0x7E10 | C171=VARIABLE | D171= | E171=REAL | F171=TargetPositionE | G171=0 | H171= | I171= | L171=rw | M171=rx | N171= | O171= | P171=
+B172=0x7E11 | C172=VARIABLE | D172= | E172=REAL | F172=TargetVelocityE | G172=0 | H172= | I172= | L172=rw | M172=rx | N172= | O172= | P172=
+B173=0x7E12 | C173=VARIABLE | D173= | E173=REAL | F173=FFTorqueE | G173=0 | H173= | I173= | L173=rw | M173=rx | N173= | O173= | P173=
+B174=0x7E13 | C174=VARIABLE | D174= | E174=REAL | F174=KpE | G174=0 | H174= | I174= | L174=rw | M174=rx | N174= | O174= | P174=
+B175=0x7E14 | C175=VARIABLE | D175= | E175=REAL | F175=KdE | G175=0 | H175= | I175= | L175=rw | M175=rx | N175= | O175= | P175=
+B176=0x7F10 | C176=VARIABLE | D176= | E176=REAL | F176=TargetPositionF | G176=0 | H176= | I176= | L176=rw | M176=rx | N176= | O176= | P176=
+B177=0x7F11 | C177=VARIABLE | D177= | E177=REAL | F177=TargetVelocityF | G177=0 | H177= | I177= | L177=rw | M177=rx | N177= | O177= | P177=
+B178=0x7F12 | C178=VARIABLE | D178= | E178=REAL | F178=FFTorqueF | G178=0 | H178= | I178= | L178=rw | M178=rx | N178= | O178= | P178=
+B179=0x7F13 | C179=VARIABLE | D179= | E179=REAL | F179=KpF | G179=0 | H179= | I179= | L179=rw | M179=rx | N179= | O179= | P179=
+B180=0x7F14 | C180=VARIABLE | D180= | E180=REAL | F180=KdF | G180=0 | H180= | I180= | L180=rw | M180=rx | N180= | O180= | P180=
+D181= | E181= | F181= | G181= | H181= | I181= | N181= | O181= | P181=
+D182= | E182= | F182= | G182= | H182= | I182= | N182= | O182= | P182=
+D183= | E183= | F183= | G183= | H183= | I183= | N183= | O183= | P183=
+D184= | E184= | F184= | G184= | H184= | I184= | N184= | O184= | P184=
+B185=//0x8nnx | C185=Configuration Data of the Module (0x8000 - 0x8FFF) | D185= | E185= | F185= | G185= | H185= | I185= | J185= | K185= | L185= | M185= | N185= | O185= | P185=
+D186= | E186= | F186= | G186= | H186= | I186= | N186= | O186= | P186=
+D187= | E187= | F187= | G187= | H187= | I187= | N187= | O187= | P187=
+B188=//0x9nnx | C188=Information Data of the Module (0x9000 - 0x9FFF) | D188= | E188= | F188= | G188= | H188= | I188= | J188= | K188= | L188= | M188= | N188= | O188= | P188=
+D189= | E189= | F189= | G189= | H189= | I189= | N189= | O189= | P189=
+D190= | E190= | F190= | G190= | H190= | I190= | N190= | O190= | P190=
+B191=//0xAnnx | C191=Diagnosis Data of the Module (0xA000 - 0xAFFF) | D191= | E191= | F191= | G191= | H191= | I191= | J191= | K191= | L191= | M191= | N191= | O191= | P191=
+D192= | E192= | F192= | G192= | H192= | I192= | N192= | O192= | P192=
+D193= | E193= | F193= | G193= | H193= | I193= | N193= | O193= | P193=
+B194=//0xFxxx | C194=Device Objects (0xF000 - 0xFFFF) | D194= | E194= | F194= | G194= | H194= | I194= | J194= | K194= | L194= | M194= | N194= | O194= | P194=
+B195=0xF000 | C195=RECORD | D195= | E195= | F195=Modular Device Profile | G195= | H195= | I195= | J195=m | K195= | L195= | M195= | N195= | O195= | P195=
+B196= | C196= | D196=1 | E196=UINT16 | F196=System.Xml.XmlElement | G196=0x100 | H196= | I196= | J196=m | K196= | L196=ro | M196= | N196= | O196= | P196=
+B197= | C197= | D197=2 | E197=UINT16 | F197=System.Xml.XmlElement | G197=0x10 | H197= | I197= | J197=m | K197= | L197=ro | M197= | N197=
+B198= | C198= | D198= | E198= | F198= | G198= | H198= | I198= | J198= | K198= | L198= | M198= | N198=
+B199= | C199= | D199= | E199= | F199= | G199= | H199= | I199= | J199= | K199= | L199= | M199= | N199=

@@ -1,0 +1,13 @@
+# Docker build context = host/
+# 排除大体积 / 无关内容, 缩小构建上下文
+
+**/.git
+**/build
+**/install
+**/log
+**/__pycache__
+**/*.pyc
+*.pyo
+
+# RDK 侧 SOEM master 工程, 与镜像无关
+rdk_ecat_motor_rt/

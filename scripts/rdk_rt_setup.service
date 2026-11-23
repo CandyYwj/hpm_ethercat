@@ -1,0 +1,16 @@
+# Author: BearKing
+[Unit]
+Description=Pin EtherCAT NIC IRQ to a dedicated CPU core (real-time setup)
+After=network.target
+Wants=network.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+Environment=CORE=3
+Environment=IFACE=eth0
+# Path where rdk_rt_setup.sh is installed (see scripts/README.md).
+ExecStart=/usr/local/bin/rdk_rt_setup.sh ${CORE} ${IFACE}
+
+[Install]
+WantedBy=multi-user.target

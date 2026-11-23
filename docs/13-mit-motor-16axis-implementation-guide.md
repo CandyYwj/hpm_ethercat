@@ -1,0 +1,2671 @@
+<!-- Author: BearKing -->
+
+
+
+
+1.  ............................................................................................................................... 1 2.  ........................................................................................................................................2 3.  ............................................................................................................................... 3
+3.1  ..................................................................................................................... 3 3.2  ..................................................................................................................... 3 3.3  ................................................................................................................. 4 3.4  ......................................................................................................... 4 3.5  ..................................................................................................................... 4 3.6  ......................................................................................................................... 5 4.  ............................................................................................................................... 6 4.1  ..................................................................................................................... 6 4.2  ............................................................................................................. 7 4.3  ............................................................................................................. 8 4.4 / ............................................................................................................ 8 4.5  ..................................................................................................................... 8 5.  USB-CAN  ............................................................................................................9 5.1  ..................................................................................................................... 9 5.2 APP  ........................................................................................................ 10 5.3  ............................................................................................................... 11 5.4  ............................................................................................................... 11 5.5  ............................................................................................................... 11 5.6  ....................................................................................................................... 12 5.7  ....................................................................................................................... 12 5.8  ....................................................................................................... 12 5.9  ............................................................................................................... 13 5.10  ............................................................................................................. 13 5.11 PVT  ..............................................................................................................14 5.12 PID  ...............................................................................................................14
+
+
+6.  VESC tool  ..................................................................................................................15 6.1 App Setting ......................................................................................................................... 16 6.2 Motor Setting ...................................................................................................................... 17 6.2.1  KP  KI .............................................................................................18 6.2.2  ............................................................................................. 19 6.2.3  PID  ................................................ 19 6.3 VESC Terminal ...................................................................................................................20
+7. CAN  ............................................................................................................................. 23 7.1  ........................................................................................................................... 23 7.2  ........................................................................................................... 23 7.3  CAN  ID  .......................................................................................... 24 7.4  CAN  ID  .......................................................................................... 24
+8.  ............................................................................................................................. 25 8.1  CAN  ID ............................................................................................................25
+9.  ..................................................................................................................... 25 9.1  ................................................................................................... 26 9.1.1  ................................................................................................. 26 9.1.2  ........................................................................................ 27 9.1.3  ........................................................................................ 27 9.1.4  ................................................................28 9.1.5  ................................................................................................ 29 9.2  ................................................................................................... 29 9.2.1  ............................................................................................ 29 9.2.2  ........................................................................................ 30 9.2.3  ........................................................................................ 31 9.2.4  KP  .........................................................................31 9.2.5  KD  ........................................................................ 32 9.2.6  ........................................................................32 9.2.7  ........................................................................33 9.2.8  ........................................................................33
+
+
+9.2.9  ........................................................................34 9.2.10  CAN  ............................................................................34 9.2.11  PI  .....................................................................................35 9.2.12  PI  .................................................................................... 35 9.2.13  PD  ...................................................................................36 9.2.14  Kt  ................................................................36 9.2.15  Kt  ........................................................................37 9.2.16  .............................................................................. 37 9.3  ................................................................................................... 38 10.  ................................................................................................................... 39 10.1  1 ...................................................................................... 39 10.2  2 ...................................................................................... 40 10.3  3 ...................................................................................... 40 10.4  4 ...................................................................................... 40 10.5  5 ...................................................................................... 41 10.6  6 ....................................................................................... 42 11. CAN  ................................................................................................................... 43 12. EtherCAT-CAN  ......................................................................................................45 12.1  ............................................................................................................. 45  AUSB-CAN  ............................................................................................47  BEtherCAT-CAN  ............................................................................................48
+
+
+
+
+ 2024-10-8 2024-12-5 2024-12-13 2024-12-17 2025-1-17 2025-4-28 2025-6-20 2025-9-1 2025-10-15 2025-11-19 2025-12-4 2026-1-9 2026-1-12 2026-3-6 2026-3-14 2026-5-19 2026-5-22 2026-6-17
+
+
+V1.2 V1.3 V1.4 V1.5 V1.6 V1.7 V1.8 V1.9 V1.10 V1.11 V1.12 V1.13 V1.14 V1.15 V1.16 V1.17 V1.18 V1.19
+
+   2 9.1   USB  CAN   EC   EC   USB-CAN      EC    CAN  CANFD    USB  CAN   20~57V  
+
+
+1.
+  USB-CAN    CAN  120   VESC_Tool EC-4310\8112\10020-24\13715\13720   M2   Ether CAT-Can 
+1
+
+
+2.
+  85 85  95 105         
+2
+
+
+3.
+3.1
+ 4  2   4    
+3.2
+  mos  105 120  95 110
+  
+I = I � [1 - (T - T) (T - T)]  mos   mos  mos    mos   
+3
+
+
+3.3
+ 14   0.1  0.2   1 
+ 0~360� -180皛180� 170�  20� 190� 170�  20�-170� 20� 150�
+3.4
+ 20~57V57V~60V  60V  16V 
+   
+  
+ AMASS  XT30  15A  30A 
+3.5
+CAN  1MCAN  2000Hz 0.4ms  500ms CAN   500ms 
+ ID  ID   5s 
+ 500ms  CAN 
+4
+
+
+   ID  500ms  CAN  USB CAN   USB CAN  USB 
+3.6
+  CAN   CAN  VESC tool 
+5
+
+
+
+4.
+
+4.1
+ motor _ current 
+KP *( pos _ desired  pos _ current)  KD *(spd _ desired  spd _ current)  Torque / KT
+ KPKD KT 
+ KP  15KD  0.5(
+)
+
+� Pdes 
+
+Kp
+
+Pcur
+
+Tdes
+
+�  Tref
+
+1/KT (iq-ref)
+
+1.CAN 
+
+� Vdes 
+
+Kd
+
+Vcur
+
+0 idref
+2.CA
+
+ 4-1
+
+6
+
+
+
+4.2
+�180   PI   KPKD KP KD    KPKD  VESC tool  0~0.1  KP0.006KD0  P V  I  P0  V  P P0  P  V  P0  P  V  V P0  P  I Tmax=I*  Tmax
+
+� Pdes 
+
+ Kp
+Kp
+
+Pcur
+
+�
+
+Vcur
+
+ Kp
+Kp
+
+ iq-ref
+� 
+
+FOC
+
+ Ki
+S Ki
+
+0 idref 
+
+ 4-2
+
+7
+
+
+
+4.3
+  0.0001~1 0.12  0~1 0.08   VESC tool  CAN 
+
+� Vdes  Vcur
+
+ Kp
+Kp
+
+
+� 
+
+ Ki
+S Ki
+
+iq-ref 0 idref
+
+FOC 
+
+ 4-3
+4.4/
+/ 
+4.5
+   0  
+
+8
+
+
+5. USB-CAN 
+ USB-CAN  
+5.1
+
+
+9
+
+
+
+1.CANCANFD
+
+TYPE-CLEDLED
+
+ 2. 2PIN  4PIN  CAN  CANFD  3.
+
+5.2APP 
+
+1
+
+2
+
+6
+
+5
+
+4
+
+3
+
+1 USB  CAN  2 ID 5 "" 3 4    4 5 " " 5 APP  6APPCANCANFD
+10
+
+
+5.3
+5.4
+ 
+5.5
+
+11
+
+
+5.6
+
+5.7
+
+5.8
+1
+2
+12
+
+
+1 
+2
+5.9
+1 2
+1 ID 2 ID"1" ID  1 
+5.10
+13
+
+
+ ID ID ID   ID  ID ID  ID  ID  1
+5.11PVT 
+5.12PID 
+14
+
+
+6. VESC tool 
+ FOC  VESC tool  APP   VESC tool  VESC tool   VESC 
+ Windows  VESC tool   VCP  VESC tool2.06 VCP  VESC tool   VCP  https://www.st.com/en/development-tools/stsw-stm32102.html#get-software VESC tool  https://vesc-project.com/vesc_tool   micro USB  micro USB   USB  VESC tool  APP  VESC tool 
+ 
+ 
+15
+
+
+6.1App Setting
+ App Setting  General  A App A
+ APP  APP Settings   APP 
+VESC ID  CAN ID ID  1 Timeout CAN  0  CAN   Timeout  500ms 500ms  Timeout Brake Current   0 Can Baud Rate CAN  
+16
+
+
+6.2Motor Setting
+ Motor Settings M M
+ Motor  Motor Settings   Motor 
+
+17
+
+
+6.2.1  KP  KI
+Motor Settings  FOC  General   KP  KI   100Hz 
+
+18
+
+
+6.2.2 
+ Data Analysis Sampled Data  KP  KI    0.35/trtr  10%-90%
+ 456  
+6.2.3  PID 
+ PID  Speed PID Kp  Speed PID Ki  PID Speed PID Kd   kt Position PID Kp  Position PID Ki  PID 
+19
+
+
+6.3VESC Terminal
+ 
+ set_PT_ctrl_KP_range 0 500 set_PT_ctrl_KD_range 0 5 set_PT_ctrl_pos_range -12.5 12.5 set_PT_ctrl_spd_range -18 18 set_PT_ctrl_tor_range -400 400
+20
+
+
+  D   ERPMRPM = ERPM / Motor Poles / Gear Ratio I  P  IB  HB   0  STOP 
+21
+
+
+ Data Analysis   RT 
+ 
+22
+
+
+
+7.CAN 
+
+USB  CAN CAN  CANOpen J1939 DeviceNet USBCAN-2
+
+USB  CAN  zlg
+7.1
+
+
+
+/ /
+
+
+
+CAN CAN FD
+
+1Mbps/76.5% 1Mbps/76.5%
+
+---- 5Mbps/88.2%
+
+ CAN CAN FD+BRS
+
+0x01~0x7FF0x7FF 
+
+ ID
+
+4~8 
+
+
+
+7.2
+
+0x7FF 0x7FF
+
+CAN ----4 
+
+Byte 0
+
+Byte 1
+
+Byte 2
+
+Byte 3
+
+ ID  8   ID  8  0x00
+
+0x03
+
+CAN ----6 
+
+Byte 0
+
+Byte 1
+
+Byte 2
+
+Byte 3
+
+int16
+
+ ID  8   ID  8  0x00
+
+0x03
+
+ * 100
+
+0x7FF
+
+ ID  8   ID  8  0x01
+
+0x03
+
+0x7FF
+
+ ID  8   ID  8  0x01
+
+0x00
+
+
+
+1. 0 2. 3. 
+
+ 0x7FF
+
+
+
+
+
+
+
+4
+
+00 01 00 03
+
+  Motor ID  1 
+
+23
+
+
+
+7.3 CAN  ID 
+
+0x7FF 0x7FF
+
+6 
+
+4 
+
+Byte 0  ID  8 
+ ID  8 
+ ID  8 
+
+CAN ---- ID
+
+Byte 1
+
+Byte 2 Byte 3
+
+Byte 4
+
+ ID  8  0x00
+
+0x04
+
+ ID  8 
+
+0x7FF
+
+ ID  8  0x01
+
+0x04
+
+0x7FF
+
+ ID  8  0x01
+
+0x00
+
+Byte5  ID  8 
+
+
+
+ CAN  ID 
+
+
+
+
+
+
+
+0x7FF
+
+6
+
+00 01 00 04 00 02  Motor ID  1  2
+
+7.4 CAN  ID 
+
+0x7FF 0x7FF
+
+6 
+
+6 
+
+ ID  0x01
+
+Byte 0
+
+Byte 1
+
+Byte 2
+
+Byte 3
+
+Byte 4
+
+Byte5
+
+0x7F
+
+0x7F
+
+0x00
+
+0x05
+
+0x7F
+
+0x7F
+
+0x7FF 6 
+
+0x7F
+
+0x7F
+
+0x01
+
+0x05
+
+0x7F
+
+0x7F
+
+
+
+ ID  1 ID  ID 
+
+ CAN  ID 
+
+
+
+
+
+
+
+
+
+0x7FF
+
+6
+
+7F 7F 00 05 7F 7F
+
+ Motor ID  1
+
+24
+
+
+
+8.
+
+8.1 CAN  ID
+
+0x7FF 0x7FF
+
+4 
+
+ 5  4 
+
+Byte 0 0xFF
+0xFF
+0x80
+
+CAN ---- ID 4 
+
+Byte 1
+
+Byte 2
+
+Byte 3
+
+0xFF
+
+0x00( )
+
+0x82
+
+0x7FF 5 
+
+0xFF
+
+0x01 
+
+ ID  8 
+
+0x7FF 4 
+
+0x80
+
+0x01 
+
+0x80
+
+Byte 4  ID  8 
+
+ CAN  0X7FF 
+
+ ID 
+
+
+
+CAN 
+
+
+
+
+
+ CAN  ID 
+
+
+
+
+
+
+
+0x7FF
+
+4
+
+FF FF 00 82
+
+ Motor ID
+
+9.
+
+ CAN   2 
+ CAN  5000 50A  30A 30A 
+
+
+25
+
+
+
+9.1
+
+9.1.1 
+
+ uint3 0x00
+
+Motor ID 8 ( 64 )
+
+ KP uint12  KD uint9  uint16  uint12
+
+0~4095
+
+0~511
+
+0~65535
+
+0~4095
+
+ uint12 0~4095
+
+
+
+motor _ current  KP *( pos _ desired  pos _ current) 
+KD *(spd _ desired  spd _ current)  Torque / KT
+ EC-A4310-P2-36 
+
+ KP 0~4095  0.0f~500.0f
+
+ KD 0~511  0.0f~5.0f
+
+0~65535 -12.5rad~12.5rad
+
+0~4095 -18.0rad/s~18.0rad/s
+
+0~4095 -30Nm~30Nm
+
+ 1 
+
+
+
+KP=15.0fKD=0.5f00  9-1
+
+ Motor ID
+
+ 8
+
+
+
+
+
+
+
+KP=20.0fKD=5.0f0.0rad 01 47 FF 7F FF 7F F7 FF
+0.0rad/s 0.0Nm
+
+26
+
+
+
+9.1.2 
+
+ uint3 0x01
+
+Motor ID 8 ( 64 )
+
+pos spd cur
+
+float32
+
+uint15
+
+uint12
+
+
+
+0~32767
+
+0~4095
+
+0x01
+
+ ackuint2
+0~3
+
+120.5  120.5�
+
+0~32767  0~3276.7rpm 10
+
+0~4095  0~409.5A 10
+
+
+
+0
+
+1 1
+
+2 2
+
+3 3
+
+
+
+ Motor ID
+
+ 8
+
+
+
+
+
+0�50rpm 20 00 00 00 00 7D 01 91
+10A 1
+
+9.1.3 
+
+ uint3 0x02
+
+Motor ID 7 ( 56 )
+
+ uint3  uint2  float32
+
+0
+
+0~3
+
+ uint16 0~65535
+
+0x02
+
+ 0 0
+
+
+
+
+
+0
+
+1 1
+
+2 2
+
+3 3
+
+CAN RPM
+
+0~65535  0~6553.5A 10
+
+27
+
+
+
+ 
+
+ 
+
+
+
+Motor ID
+
+7
+
+41 42 48 00 00 00 64 50rpm10A 1
+
+9.1.4 
+
+ uint3 0x03
+
+Motor ID 3 ( 24 )
+
+ uint3
+
+ uint2
+
+//  int16
+
+0~7
+
+0~3
+
+-32768~32767
+
+
+
+0
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+
+
+0
+
+1 1
+
+2 2
+
+3 3
+
+-32768~32767 -327.68~327.67A
+
+-32768~32767 -327.68~327.67Nm
+
+ =  * 
+
+0/1
+
+
+
+ 24V 24V 
+
+28
+
+
+
+
+
+ 
+
+
+
+
+
+61 01 F4
+
+5A 1
+
+65 01 F4
+
+5Nm 1
+
+Motor ID
+
+3
+
+69 00 00 6D 01 F4
+
+ 1 5A 1
+
+71 01 F4
+
+5A 1
+
+75 00 01
+
+ 1
+
+9.1.5 
+
+Motor ID 2 ( 16 )
+
+ uint3
+
+ uint5
+
+ uint8
+
+0x04
+
+0~7
+
+1/0
+
+Motor ID 2 
+
+uint8
+
+ uint8
+
+0xB2
+
+1/0
+
+0x04
+
+
+
+
+
+
+
+
+
+
+
+
+
+Motor ID
+
+2
+
+80 01
+
+ 1
+
+9.2
+
+
+
+
+
+
+
+
+
+9.2.1 
+
+ uint3 0x06
+uint8 0xFF
+
+Motor ID 4 ( 32 )
+
+ uint3  uint2  uint8  uint16
+
+0
+
+0~3
+
+0x01
+
+
+
+Motor ID 5 
+
+uint8
+
+ uint8
+
+uint16
+
+0xFE
+
+0x01
+
+
+
+0x06
+
+29
+
+
+
+ 0
+
+
+
+1
+
+2
+
+
+
+0x01
+
+0~2000  0~20rad/s2 
+
+ 2000
+
+
+
+
+
+
+
+
+
+
+
+Motor ID
+
+4
+
+C0 01 07 D0
+
+20 rad/s2
+
+9.2.2 
+
+ uint3 0x06
+uint8 0xFF
+
+Motor ID 3 ( 24 )
+
+ uint5
+
+ uint8
+
+ uint8
+
+0~3
+
+0x02
+
+
+
+Motor ID 5 
+
+uint8
+
+ uint8
+
+uint8
+
+0xFE
+
+0x02
+
+
+
+0x06
+
+ 0
+
+
+
+1
+
+2
+
+
+
+0x00 CAN
+
+0x01CAN FD
+
+0x02CAN OPEN ()
+
+
+
+
+
+
+
+
+
+
+
+Motor ID
+
+3
+
+C1 02 01
+
+ CAN FD ()
+
+30
+
+
+
+9.2.3 
+
+ uint3 0x06
+uint8 0xFF
+
+Motor ID 4 
+
+ uint5
+
+ uint8
+
+0
+
+0x04
+
+Motor ID 5 
+
+uint8
+
+ uint8
+
+0xFE
+
+0x04
+
+0x06
+
+ uint16  * 100
+uint16  * 100
+
+ 0
+
+ 0x04
+
+250  2.5 100
+
+
+
+
+
+
+
+
+
+
+
+Motor ID
+
+4
+
+C0 04 00 FA
+
+2.5
+
+9.2.4  KP 
+
+ uint3 0x06
+uint8 0xFF
+
+Motor ID 6 
+
+ uint5  uint8  uint16
+
+0
+
+0x05
+
+KP MIN 
+
+Motor ID 7 
+
+uint8  uint8
+
+uint16
+
+0xFE
+
+0x05
+
+KP MIN 
+
+0x06
+
+ uint16 KP MAX 
+uint16 KP MAX 
+
+ 0
+
+ 0x05 KP
+
+ KP MIN0  0 1
+
+ KP MAX500  500 1
+
+
+
+ KP 
+
+
+
+
+
+
+
+Motor ID
+
+6
+
+C0 05 00 00 01 F4
+
+KP MIN=0,KP MAX=500
+
+31
+
+
+
+9.2.5  KD 
+
+ uint3 0x06
+uint8 0xFF
+
+Motor ID 6 
+
+ uint5  uint8  uint16
+
+0
+
+0x06
+
+KD MIN 
+
+Motor ID 7 
+
+uint8  uint8
+
+uint16
+
+0xFE
+
+0x06
+
+KD MIN 
+
+ 0x06
+
+ uint16 KD MAX 
+uint16 KD MAX 
+
+ 0
+
+0x06 KD
+
+ KD MIN0  0 1
+
+ KD MAX50  50 1
+
+
+
+ KD 
+
+
+
+
+
+
+
+Motor ID
+
+6
+
+C0 06 00 00 00 32
+
+KD MIN=0,KD MAX=50
+
+9.2.6 
+
+ uint3 0x06
+uint8 0xFF
+
+Motor ID 6 
+
+ uint5  uint8  int16
+
+0
+
+0x07
+
+POS MIN  * 100
+
+Motor ID 7 
+
+uint8  uint8
+
+int16
+
+0xFE
+
+0x07
+
+POS MIN  * 100
+
+ int16 POS MAX  * 100
+int16 POS MAX  * 100
+
+ 0x06
+
+ 0
+
+ 0x07
+
+ POS MIN-1250 -12.5rad 100
+
+ POS MAX1250  12.5rad 100
+
+
+
+
+
+
+
+
+
+
+
+Motor ID
+
+6
+
+C0 07 FA 1E 04 E2 POS MIN=-12.5 rad,POS MAX=12.5 rad
+
+32
+
+
+
+9.2.7 
+
+ uint3 0x06
+uint8 0xFF
+
+Motor ID 6 
+
+ uint5  uint8  int16
+
+0
+
+0x08
+
+SPD MIN  * 100
+
+Motor ID 7 
+
+uint8  uint8
+
+int16
+
+0xFE
+
+0x08
+
+SPD MIN 
+
+ int16 SPD MAX  * 100
+int16 SPD MAX  * 100
+
+0x06
+
+ 0
+
+ 0x08
+
+ SPD MIN-1800 -18rad/s 100
+
+ SPD MAX1800  18rad/s 100
+
+
+
+
+
+
+
+
+
+
+
+Motor ID
+
+6
+
+C0 08 F8 F8 07 08 SPD MIN=-18 rad/s,SPD MAX=18 rad/s
+
+9.2.8 
+
+Motor ID 6 
+
+ uint3  uint5
+
+
+
+ int16
+
+uint8
+
+0x06
+
+0
+
+0x09
+
+TOR MIN  * 10
+
+Motor ID 7 
+
+uint8
+
+uint8  uint8
+
+int16
+
+0xFF
+
+0xFE
+
+0x09
+
+TOR MIN  * 10
+
+0x06
+
+ int16
+TOR MAX  * 10
+int16 TOR MAX  * 10
+
+ 0
+
+ 0x09
+
+ TOR MIN-900 -90Nm 10
+
+ TOR MAX900  90Nm 10
+
+
+
+
+
+
+
+
+
+
+
+Motor ID
+
+6
+
+C0 09 FC 7C 03 84 TOR MIN=-90 Nm,TOR MAX=90 Nm
+
+33
+
+
+
+9.2.9 
+
+Motor ID 6 
+
+ uint3  uint5
+
+
+
+ int16
+
+uint8
+
+0x06
+
+0
+
+0x0a
+
+CUR MIN  * 10
+
+Motor ID 7 
+
+uint8
+
+uint8  uint8
+
+int16
+
+0xFF
+
+0xFE
+
+0x0a
+
+CUR MIN  * 10
+
+0x06
+
+ int16
+CUR MAX  * 10
+int16 CUR MAX  * 10
+
+ 0
+
+ 0x0a
+
+ CUR MIN-900 -90A 10
+
+ CUR MAX900  90A 10
+
+
+
+
+
+
+
+
+
+
+
+Motor ID
+
+6
+
+C0 0A FC 7C 03 84 CUR MIN=-90 A,CUR MAX=90 A
+
+9.2.10  CAN 
+
+ uint3 0x06
+uint8 0xFF
+
+Motor ID 4 
+
+ uint5
+
+ uint8
+
+ uint16
+
+0
+
+0x0b
+
+
+
+Motor ID 5 
+
+uint8
+
+ uint8
+
+uint16
+
+0xFE
+
+0x0b
+
+
+
+0x06
+
+ 0
+
+ 0x0b CAN 
+
+ CAN 500  500ms 1
+
+ CAN 
+
+
+
+
+
+
+
+Motor ID
+
+4
+
+C0 0B 01 F4
+
+ 0  CAN 
+
+ 500ms
+
+34
+
+
+
+9.2.11  PI 
+
+ uint3
+0x06
+uint8 0xFF
+
+Motor ID 6 
+
+ uint5
+
+
+
+ uint16
+
+uint8
+
+0
+
+0x0c Current KP *10000
+
+Motor ID 7 
+
+uint8  uint8
+
+uint16
+
+0xFE
+
+0x0c
+
+Current KP *10000
+
+0x06
+
+ uint16
+Current KI  * 10
+uint16 Current KI  * 10
+
+ 0
+
+ 0x0c PI
+
+ Current KP100  0.01 10000
+
+ Current KI500  50 10
+
+
+
+ PI 
+
+
+
+
+
+
+
+Motor ID
+
+6
+
+C0 0C 00 64 01 F4
+
+Current KP:0.01,Current KI:50
+
+9.2.12  PI 
+
+ uint3 0x06
+uint8 0xFF
+
+Motor ID 6 
+
+ uint5
+
+
+
+ uint16
+
+uint8
+
+0
+
+0x0d Speed KP   *
+
+100000
+
+Motor ID 7 
+
+uint8
+
+ uint8
+
+uint16
+
+0xFE
+
+0x0d
+
+Speed KP  * 100000
+
+0x06
+
+ uint16
+Speed KI  * 100000
+uint16 Speed KI  *
+100000
+
+ 0
+
+ 0x0d PI
+
+ Speed KP600  0.006 100000
+
+ Speed KI10000  0.1 100000
+
+
+
+ PI 
+
+
+
+
+
+
+
+Motor ID
+
+6
+
+C0 0D 02 58 27 10
+
+Speed KP:0.006,Speed KI:0.1
+
+35
+
+
+
+9.2.13  PD 
+
+ uint3 0x06
+uint8 0xFF
+
+Motor ID 6 
+
+ uint5
+
+ uint8
+
+ uint16
+
+ uint16
+
+0
+
+0x0e
+
+Position KP *100000 Position KD *100000
+
+Motor ID 7 
+
+uint8
+
+ uint8
+
+uint16
+
+uint16
+
+0xFE
+
+0x0e
+
+Position KP *100000 Position KD *100000
+
+0x06
+
+ 0
+
+ 0x0e PD
+
+ Position KP600  0.006 100000
+
+ Position KD4  0.00004 100000
+
+
+
+ PD 
+
+
+
+
+
+
+
+Motor ID
+
+6
+
+C0 0E 02 58 00 04 Position KP:0.006,Speed KD:0.00004
+
+9.2.14  Kt 
+
+ uint3 0x06
+uint8 0xFF
+
+Motor ID 3 
+
+ uint5  uint8
+
+ uint8
+
+0
+
+0x0F
+
+0 1 2
+
+Motor ID 4 
+
+uint8
+
+uint8
+
+uint8
+
+0xFE
+
+0x0F
+
+mode
+
+0x06
+
+ 0
+
+ 0x0F Kt 
+
+0 1 2 
+
+ mode  Kt 
+
+ Motor ID
+
+ Kt 
+
+
+
+
+
+
+
+3
+
+C0 0F 02
+
+ FF FE 0F 02
+
+36
+
+
+
+9.2.15  Kt 
+
+Byte0[7:5] 0x06
+
+Motor ID 8 
+
+Byte0[4:0] Byte1 Byte2
+
+Byte3
+
+Byte4
+
+Byte5
+
+ 0x10 Kt1[11:4] Kt1[3:0]+ Kt2[7:0] Kt3[11:4]
+
+1~10
+
+Kt2[11:8]
+
+/Motor ID 8 
+
+Byte6 Kt3[3:0]+ Kt4[11:8]
+
+Byte7 Kt4[7:0]
+
+Byte0 0xEE
+
+Byte1[7:5] mode
+
+Byte1 [4:0] index
+
+Byte2
+
+Byte3
+
+Byte4
+
+Kt1[11:4] Kt1[3:0]+ Kt2[7:0] Kt2[11:8]
+
+Byte5 Kt3[11:4]
+
+Byte6
+Kt3[3:0]+ Kt4[11:8]
+
+Byte7 Kt4[7:0]
+
+0x06
+
+Byte0  5  1~10 4  Kt 
+
+ 0x10 Kt
+
+ Kt  uint12  100 Kt =  / 100
+
+/ Byte1  4 Byte1  4  Kt 0 
+
+1 2   Kt 
+
+
+
+
+
+
+
+
+
+Motor ID
+
+8
+
+C1 10 0F A1 04 10 E1 18
+
+ 1Kt=2.502.602.702.80
+
+9.2.16 
+
+ uint3 0x06
+uint8 0xFF
+
+Motor ID 3 
+
+ uint5
+
+ uint8
+
+0
+
+0x11
+
+Motor ID 5 
+
+uint8
+
+uint8
+
+0xFE
+
+0x11
+
+0x06
+
+ int16  * 100
+int16  * 100
+
+ 0
+
+ 0x11
+
+ int16  100 =  / 100
+
+ Motor ID
+
+ 4
+
+
+
+
+
+
+
+C0 11 03 E8
+
+10� FF FE 11 03 E8
+
+37
+
+
+
+9.3
+
+ uint3
+
+Motor ID  uint5
+
+0x07
+
+0~31 
+
+2~8   uint8
+0 1 2 3 4 5 22 Kt 23 KP  24 KD  25 POS  26 SPD  27 TOR  28 CUR  29 MCU_UUID 30 31 CAN  32 KP  KI 33 KP  KI 34 KP  KD 35 Kt  36 Kt Byte0[4:0] 1~10 37 38 39
+
+ Motor ID
+
+
+
+
+
+
+
+2
+
+E1 01
+
+ 
+
+ 16  
+
+38
+
+
+
+10.
+
+ CAN
+
+
+
+
+
+Motor ID
+
+2~8 
+
+ Byte0[5:7]
+ 0 1 1 2 2 3 3
+4
+5 6
+
+Byte0[0:4]
+ 0 1 2 3 4 5 6 7DRV 
+
+Byte1
+
+Byte2~Byte7
+
+
+
+ 
+
+0 1
+
+
+0 1
+
+10.1 1
+
+ uint3 0x01
+
+MotorID 8 ( 64 )
+
+
+
+
+
+
+
+
+
+
+
+uint5
+
+uint16
+
+uint12
+
+uint12
+
+uint8
+
+0~7
+
+  
+
+0~255
+
+0x01 1 
+
+MOS  uint8 0~255
+
+
+
+0~65535 -12.5f~12.5f rad
+
+0~4095 -18.0f~18.0f rad/s
+
+0~4095  9-1 
+
+ 8 *2+50
+
+MOS  8 *2+50
+
+39
+
+
+
+10.2 2
+
+ uint3 0x02
+
+MotorID 8 ( 64 )
+
+ uint5
+
+ float32
+
+ int16
+
+0~7
+
+
+
+
+
+0x02 2 
+
+ uint8 0~255
+
+
+
+120.5  120.5�
+
+-32768~32767 -327.68~327.67A
+
+ 8 *2+50
+
+10.3 3
+
+ uint3 0x03
+
+MotorID 8 ( 64 )
+
+ uint5
+
+ float32
+
+ int16
+
+0~7
+
+
+
+
+
+0x03 3 
+
+ uint8 0~255
+
+
+
+ rpm100.6  100.6rpm
+
+-32768~32767 -327.68~327.67A
+
+ 8 *2+50
+
+10.4 4
+
+ uint3 0x04
+
+MotorID 3 ( 24 )
+
+ uint5
+
+ uint8
+
+0~7
+
+0~255
+
+0x04 4 
+
+ uint8 0/1
+
+
+
+
+
+0 1 
+
+40
+
+
+
+10.5 5
+
+ uint3
+0x05
+
+ uint5
+0~31
+
+ uint8 1 2 3 4 5 22 23
+24
+25
+26
+27
+28
+29
+30 31 32
+
+
+float  6  RPMfloat  6  float  6  float  6  uint16  4   100uint16  4   KP  KP_MIN 1uint16  KP_MAX 1uint16  6   KD  KD_MIN 1uint16  KD_MAX 1uint16  6   POS  POS_MIN 100int16  POS_MAX 100int16  6   SPD  SPD_MIN 100int16  SPD_MAX 100int16  6   TOR  TOR_MIN 10int16  TOR_MAX 10int16  6   CUR  CUR_MIN 10int16  CUR_MAX 10int16  6   MCU_UUID  1uint8  UUID uint8  x4 1  7   2uint8  UUID uint8  x4 2  7   3uint8  UUID uint8  x4 3  7    uint8  x3 uint8  x3 8   CAN ms 1uint16  4   KP  KI Current KPuint16 , 10000
+
+41
+
+
+
+Current KIuint16 , 10 6 
+
+ KP  KI
+
+33
+
+Speed KPuint16 , 100000
+
+Speed KIuint16 , 100000 6 
+
+ KP  KD
+
+34
+
+Position KPuint16 , 100000
+
+Position KDuint16 , 100000 6 
+
+
+
+1uint8  35
+2uint8 
+3uint8  3 
+ 36
+
+
+ 37
+01 3 
+
+38
+
+int16 , 100 4 
+
+
+
+uint8 0 1 39
+int16  100 int16  100 7 
+
+10.6  6
+
+ uint3 0x06
+
+MotorID 2 ( 16 )
+
+ uint5
+
+ uint8
+
+0~7
+
+0/1
+
+0x06 6 
+
+
+
+0
+
+1
+
+42
+
+
+
+11.CAN 
+
+ CAN 
+
+
+
+Motor ID 8 ( 64 )
+
+ uint3  KP uint12  KD uint9  uint16  uint12  uint12
+
+0x00
+
+0~4095
+
+0~511
+
+0~65535
+
+0~4095
+
+0~4095
+
+CAN  8  8  64 
+
+ 3 12  KP 9  KD 16
+
+12  12 "
+
+"
+
+ 0KP = 20KD = 10 5rad 30rad/s 10Nm 
+
+
+
+00000000 00101000 00001010 00000000 00000101 00000001 11100000 00001010
+
+ 8 
+
+00000000 00101000 00001010 00000000 00000101 00000001 11110000 00001010
+
+0x00
+
+0x28 0x0A 0X00 0X05 0X01
+
+0XF0
+
+0X0A
+
+ CAN 
+
+ Float 
+
+ -  (toolhelper.cn)
+
+
+
+ 8 
+
+ID1 0� 20rpm 5A  2
+
+Data[0] Data[1] Data[2] Data[3] Data[4] Data[5] Data[6] Data[7]
+
+0x20
+
+0x00
+
+0x00
+
+0x00
+
+0x00
+
+0x32
+
+0x00
+
+0xCA
+
+ID1 90� 20rpm 5A  2
+
+Data[0] Data[1] Data[2] Data[3] Data[4] Data[5] Data[6] Data[7]
+
+0x28
+
+0x56
+
+0x80
+
+0x00
+
+0x00
+
+0x32
+
+0x00
+
+0xCA
+
+ID1 -90� 20rpm 5A  2
+
+Data[0] Data[1] Data[2] Data[3] Data[4] Data[5] Data[6] Data[7]
+
+0x38
+
+0x56
+
+0x80
+
+0x00
+
+0x00
+
+0x32
+
+0x00
+
+0xCA
+
+43
+
+
+
+Data[0] 0x43
+Data[0] 0x43
+Data[0] 0x43
+
+ 7 
+
+ID1 20rpm 5A  3
+
+Data[1] Data[2] Data[3] Data[4] Data[5] Data[6]
+
+0x41
+
+0xA0
+
+0x00
+
+0x00
+
+0x00
+
+0x32
+
+ID1 60rpm 5A  3
+
+Data[1] Data[2] Data[3] Data[4] Data[5] Data[6]
+
+0x42
+
+0x70
+
+0x00
+
+0x00
+
+0x00
+
+0x32
+
+ID1 -60rpm 5A  3
+
+Data[1] Data[2] Data[3] Data[4] Data[5] Data[6]
+
+0xC2
+
+0x70
+
+0x00
+
+0x00
+
+0x00
+
+0x32
+
+Data[0] 0x62
+Data[0] 0x62
+Data[0] 0x62
+
+Data[1] 0x01
+Data[1] 0x01
+Data[1] 0xFE
+
+ 3  ID1 3A  2
+Data[2] 0x2C ID1 5A  2 Data[2] 0xF4 ID1 -5A  2 Data[2] 0x0C
+
+Data[0] 0x66
+Data[0] 0x66
+Data[0] 0x66
+
+ 3 
+
+ID1 3Nm  2
+
+Data[1] Data[2]
+
+0x01
+
+0x2C
+
+ID1 5Nm  2
+
+Data[1] Data[2]
+
+0x01
+
+0xF4
+
+ID1 -5Nm  2
+
+Data[1] Data[2]
+
+0xFE
+
+0x0C
+
+44
+
+
+12.EtherCAT-CAN 
+12.1
+ CAN   1.25�4Pin  4Pin  ethercat 
+45
+
+
+ USB  USB  4pin  4pin  5V  500mA
+ 20  1Khz, CAN   50us 
+ 6  123   CAN1456  CAN2
+ https://pan.baidu.com/s/1l5z25D0bQwoyJS3KzZ1EAg?pwd=6smn
+46
+
+
+ AUSB-CAN 
+47
+
+
+ BEtherCAT-CAN 
+48
+
+
+49
+
+11-bit ID
+Bit 10~0
+
+8-byte Data Area
+FF FF FF FF FF FF F_CMD FDF_CMD: Protocol type- 0: Private protocol (default)- 1: CANopen<br>- 2: MIT protocol
+
+Response: Response Command 2
+
+6.12. Command 9: Modify Host CAN ID
+
+Data Field Size
+
+11-bit ID Bit 10~0
+
+8-byte Data Area FF FF FF FF FF FF F_CMD 01F_CMD: Host CAN ID
+
+Response: Response Command 2
+
+6.13. Command 10: Position Mode Control Command
+
+Data Field Size Description
+
+11-bit ID
+Bit 10~8 1
+
+Bit 7~0
+Target motor CAN ID
+
+8-byte Data Area
+Byte 0~3: Target position (rad, 32-bit float) Byte 4~7: Target speed (rad/s, 32-bit float)
+
+Response: Response Command 1
+
+78
+
+RobStride Motor User Manual
+
+6.14. Command 11: Velocity Mode Control Command
+
+Data Field Size
+
+11-bit ID
+Bit 10~8
+
+Bit 7~0
+
+Description 2
+
+Target motor CAN ID
+
+8-byte Data Area
+Byte 0~3: Target speed (rad/s, 32-bit float) Byte 4~7: Current limit in speed/position mode (A, 32-bit float)
+
+Response: Response Command 1
+
+6.15. Command 12:Save motor data (requires firmware update to 0.6.0.11)
+
+Data Field
+
+11-bit ID
+
+8-byte Data Area
+
+Size
+
+Bit 10~0
+
+Byte0~Byte7
+
+Description Target motor
+
+FF FF FF FF FF FF FF F8
+
+CANID
+
+Response frame: Response command 2
+
+6.16. Command 13: Motor actively reports (requires firmware update to 0.6.0.11)
+
+Data Field
+
+11-bit ID
+
+8-byte Data Area
+
+Size
+
+Bit 10~0
+
+Byte0~Byte7
+
+Description Target motor CANID
+
+FF FF FF FF FF FF F_CMD F9 The F_CMD byte indicates the motor protocol type. 0 indicates no reporting (default).
+
+1 is for reporting
+
+Response frame: Response command 1
+
+6.17. Command 14: Read motor parameters (requires firmware update to 0.6.0.11)
+
+Data Field Size
+Description
+
+11-bit ID bit10~8
+3 3
+
+bit7~0
+7F Target motor CANID
+
+8Byte 
+Byte0~Byte7
+05 70 00 00 00 00 00 00 Byte0~1: index(See the read/write parameter table below for details.) Byte2~3: 00 Byte4~7: 00 The above data is in low byte
+
+79
+
+RobStride Motor User Manual
+
+Response frame:
+
+Data Field 11-bit ID
+
+Size
+
+bit10~8
+
+3
+
+Description 3
+
+bit7~0
+7F Target motor CANID
+
+first, high byte last.
+8Byte 
+Byte0~Byte7
+05 70 00 00 00 00 00 00 Byte0~1: index See the read/write parameter table for details (same as the private protocol parameter table). Byte2~3: 00 Byte4~7: 00 For parameter data, data of 1 byte or more is formatted with the least significant byte first and the most significant byte last.
+
+6.18. Command 15: Write motor parameters (requires firmware update to 0.6.0.11)
+
+Data Field Size
+Description
+
+11-bit ID bit10~8
+4 4
+
+Response frame:
+
+Data Field 11-bit ID
+
+Size
+
+bit10~8
+
+4
+
+Description 4
+
+bit7~0 7F Target motor CANID
+bit7~0 7F Target motor CANID
+
+8Byte 
+Byte0~Byte7
+29 70 00 00 00 00 00 00 Byte0~1: index See the read/write parameter table for details (same as the private protocol parameter table). Byte2~3: 00 Byte4~7: 00 Parameter data: The above data is in low byte first, high byte last.
+8Byte 
+Byte0~Byte7
+29 70 00 00 00 00 00 00 Byte0~1: index See the read/write parameter table for details (same as the private protocol parameter table). Byte2~3: 00 Byte4~7: 00 Parameter data: The above data is in low byte first, high byte last.
+
+6.19. Motion Control Mode
+
+The motor defaults to Motion Control Mode upon power-up. 1. Send the Motor Enable Command (Command 1).
+80
+
+RobStride Motor User Manual
+2. Send the Motion Control Command (Command 3) to activate dynamic parameter control. 3. Send the Motor Stop Command (Command 2) to halt operation when needed.
+6.20. Velocity Mode
+1. Configure the motor's operation mode by sending Set Operation Mode Command (Command 6) with Mode = 2 (Velocity Mode). 2. Send the Motor Enable Command (Command 1) to activate the motor. 3. Send the Velocity Mode Control Command (Command 11) to set the maximum current (absolute value) and target speed. 4. To stop, send the Motor Stop Command (Command 2).
+6.21. Position Mode (CSP - Cyclic Synchronous Position)
+1. Configure the motor's operation mode by sending Set Operation Mode Command (Command 6) with Mode = 1 (Position Mode). 2. Send the Motor Enable Command (Command 1) to activate the motor.
+81
+
+RobStride Motor User Manual
+3. Send the Position Mode Control Command (Command 10) to set the maximum speed (absolute value) and target position. 4. To stop, send the Motor Stop Command (Command 2).
+82
+
+RobStride Motor User Manual
+
+7.Version History
+
+Version Number 1.0
+
+Description Initial Release
+
+Date November 25, 2025
+
+83
+
+

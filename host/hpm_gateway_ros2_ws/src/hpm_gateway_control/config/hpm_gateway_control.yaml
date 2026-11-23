@@ -1,0 +1,17 @@
+hpm_gateway_control_node:
+  ros__parameters:
+    start_ethercat: false
+    arm_all_axes: false
+    interface_name: eth0
+    cycle_us: 1000
+    rx_timeout_us: 500
+    command_timeout_ms: 100
+    rt_priority: 0
+    rt_cpu: -1
+    feedback_publish_hz: 200.0
+    command_topic: /hpm_gateway/motor_command
+    aggregate_command_topic: /hpm_gateway/motor_commands
+    feedback_topic: /hpm_gateway/motor_feedback
+    imu_topic: /imu/data
+    temperature_topic: /imu/temperature
+    imu_frame_id: imu_link
