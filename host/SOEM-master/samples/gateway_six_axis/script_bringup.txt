@@ -1,0 +1,12 @@
+# Six-axis bench script. Times are milliseconds from start.
+# Stage 1 (0-3000): all axes free, Kp=Kd=0 -> nothing can move.
+0    zero
+# Stage 2: one axis, small step, low gains. Uncomment only after that axis
+# reports feedback (pos not 0.0000 and stable).
+# 3000  pos 1 0.05 2.0 0.2
+# 6000  pos 1 0.00 2.0 0.2
+# Stage 3: second axis, then the rest, keeping gains low until direction is known.
+# 7000  pos 2 0.05 2.0 0.2
+# 10000 pos 2 0.00 2.0 0.2
+12000 zero
+15000 quit

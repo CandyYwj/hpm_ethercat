@@ -1,0 +1,10 @@
+# 0.02 rad identification move, low gains
+0    zero
+1500 pos 1 
+1.4818
+ 0.5 0.5
+7000 pos 1 
+1.4618
+ 0.5 0.5
+12000 zero
+14000 quit

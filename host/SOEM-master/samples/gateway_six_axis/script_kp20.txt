@@ -1,0 +1,10 @@
+# 0.05 rad with Kp=20 Kd=1 (same gains as the working CAN bench test)
+0    zero
+1200 pos 1 
+1.5114
+ 20.0 1.0
+7000 pos 1 
+1.4614
+ 20.0 1.0
+13000 zero
+15000 quit

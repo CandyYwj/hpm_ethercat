@@ -1,0 +1,2 @@
+add_executable(gateway_master gateway_master.c)
+target_link_libraries(gateway_master soem)
